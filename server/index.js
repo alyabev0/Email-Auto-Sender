@@ -14,7 +14,7 @@ app.use(cors())
 // mailer.sendMail()
 
 app.post("/send_mail", cors(), async (req, res) => {
-    let {text} = req.body
+    let {text, subject} = req.body
     console.log(req.body)
     const transporter = nodemailer.createTransport({
         service: "gmail",
@@ -27,7 +27,7 @@ app.post("/send_mail", cors(), async (req, res) => {
     const mailOptions = {
         from: "alyabev1998@gmail.com",
         to: "alyabev1998@gmail.com",
-        subject: "auto mail",
+        subject: subject,
         text: text
     }
 
