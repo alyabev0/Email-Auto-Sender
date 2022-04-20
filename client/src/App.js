@@ -1,6 +1,7 @@
 import axios from "axios"
 import React, {useState} from "react";
 import './App.css';
+import { Button, ButtonGroup, Input } from '@chakra-ui/react'
 
 function App() {
   var [sent, setSent] = useState(false)
@@ -26,11 +27,11 @@ return (
       <form onSubmit={handleSend}>
 
         
-        <input type="text" placeholder="subject" value={subject} onChange={(event) => setSubject(event.target.value)} />
+        <Input focusBorderColor='purple.900' type="text" placeholder="subject" value={subject} onChange={(event) => setSubject(event.target.value)} />
 
-        <input type="text" placeholder="text" value={text} onChange={(event) => setText(event.target.value)} />
+        <Input focusBorderColor='purple.900' type="text" placeholder="text" value={text} onChange={(event) => setText(event.target.value)} />
 
-        <button type="submit">Send Email</button>
+        <Button colorScheme='purple' type="submit">Send Email</Button>
       </form>
     ) : (
       <h1>Email Sent</h1>
