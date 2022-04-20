@@ -28,7 +28,7 @@ app.post("/send_mail", cors(), async (req, res) => {
         from: "alyabev1998@gmail.com",
         to: "alyabev1998@gmail.com",
         subject: subject,
-        text: text
+        text: text 
     }
 
     await transporter.sendMail(mailOptions)

@@ -24,9 +24,11 @@ return (
   <div className="App">
     {!sent ? (
       <form onSubmit={handleSend}>
-        <input type="text" value={subject} onChange={(event) => setSubject(event.target.value)} />
 
-        <input type="text" value={text} onChange={(event) => setText(event.target.value)} />
+        
+        <input type="text" placeholder="subject" value={subject} onChange={(event) => setSubject(event.target.value)} />
+
+        <input type="text" placeholder="text" value={text} onChange={(event) => setText(event.target.value)} />
 
         <button type="submit">Send Email</button>
       </form>
