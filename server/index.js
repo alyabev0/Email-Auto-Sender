@@ -13,19 +13,18 @@ app.use(cors())
 // let mailer = require("./mailer")
 // mailer.sendMail()
 
-app.post("/auth", cors(), async (req, res) => {
-    let { email, pass } = req.body
-    console.log(req.body)
-    var transporter = nodemailer.createTransport({
-        service: "gmail",
-        auth: {
-            user: email,
-            pass: pass
-        }
-    })
-    console.log("success!")
-})
-
+// app.post("/auth", cors(), async (req, res) => {
+//     var { email, pass } = req.body
+//     console.log(req.body)
+//     var transporter = nodemailer.createTransport({
+//         service: "gmail",
+//         auth: {
+//             user: email,
+//             pass: pass
+//         }
+//     })
+//     console.log("success!")
+// })
 
 app.post("/send_mail", cors(), async (req, res) => {
     let {text, subject} = req.body
@@ -33,8 +32,8 @@ app.post("/send_mail", cors(), async (req, res) => {
     const transporter = nodemailer.createTransport({
         service: "gmail",
         auth: {
-            user: process.env.EMAIL,
-            pass: process.env.PASSWORD
+            user: "alyabev1998@gmail.com",
+            pass: "Zaqwest123!"
         }
     })
 
