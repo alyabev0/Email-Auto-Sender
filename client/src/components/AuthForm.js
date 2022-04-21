@@ -1,46 +1,46 @@
 import React, {useState} from 'react'
 import { Flex, Button, Input, Text, Center, FormControl, FormLabel, FormHelperText } from '@chakra-ui/react'
 
+
+
 const AuthForm = () => {
     const [data, setData] = useState({email: "", pass: ""})
     const validateMail = (mail) => {
-        if (mail == ""){
+        if ((mail == "")||(mail === undefined)){
             return alert("error")
         }
         return mail
     }
     const validatePass = (pass) => {
-        if (pass == ""){
+        if ((pass == "")||(pass === undefined)){
             return alert("error")
         }
         return pass
     }
     const mailChange = (e) => {
         var val = e.target.value;
-        console.log(val);
-        var valid = validateMail(val);
-        console.log(valid)
         setData({
             ...data,
-            [e.target.name]: valid
+            [e.target.name]: val
           });
     }
     const passChange = (e) => {
         var val = e.target.value;
-        console.log(val);
-        var valid = validatePass(val);
-        console.log(valid)
         setData({
             ...data,
-            [e.target.name]: valid
+            [e.target.name]: val
           });
     }
     const handleSubmit =(event)=>{
         event.preventDefault();
         data.email = validateMail(data.email)
-        alert(data.email)
+        data.pass = validatePass(data.pass)
+        
+        console.log("finally: ", data.email, data.pass)
     }
       console.log(data)
+
+      
     return (
         <React.Fragment>
             <Flex w="80%" minH="100%" direction="column" justifyContent="center" alignItems="center" bg="white">
@@ -57,10 +57,10 @@ const AuthForm = () => {
                     </Flex> */}
 
                     <form onSubmit={handleSubmit}>
-        <input style={{border: "2px solid #319795", borderRadius: "5px"}} type="text" placeholder="Тут почта..." name="email" value={data.email}
+        <input style={{border: "2px solid", borderRadius: "5px", width: "100%", borderColor: "#319795"}} type="text" placeholder="Тут почта..." name="email" value={data.email}
          onChange={(event) => mailChange(event)}/>
          
-        <input style={{marginTop: "10px", border: "2px solid #319795", borderRadius: "5px"}} type="text" placeholder="А вот тут пароль..."
+        <input style={{marginTop: "10px", border: "2px solid #319795", borderRadius: "5px", width: "100%", borderColor: "#319795"}} type="text" placeholder="А вот тут пароль..."
          name="pass"
          value={data.pass} onChange={(event) => passChange(event)}/>
         <Button m="auto" mt="10px" w="100%" colorScheme='teal' type="submit">Войти</Button>

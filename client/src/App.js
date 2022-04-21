@@ -10,7 +10,7 @@ function App() {
   var [sent, setSent] = useState(false)
   var [text, setText] = useState("")
   var [subject, setSubject] = useState("")
-  const [mailData, setMailData] = useState("")
+  const [userData, setUserdata] = useState("")
 
   const handleSend = async() => {
     try{
@@ -29,7 +29,7 @@ return (
     {/* поменять h на 100%  */}
     <Flex w="100%" h="100vh" bg='teal.100'>
     <LeftPanel/>
-    { (mailData == "" ) ? (<AuthForm/>) : (<MainPage/>)}
+    { (userData == "" ) ? (<AuthForm/>) : (<MainPage/>)}
     {/* <MainPage/> */}
       </Flex>
 
