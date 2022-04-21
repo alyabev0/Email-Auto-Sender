@@ -21,6 +21,7 @@ const AuthForm = () => {
         return pass
     }
     const mailChange = (e) => {
+        setValid(true)
         var val = e.target.value;
         setData({
             ...data,
@@ -28,6 +29,7 @@ const AuthForm = () => {
           });
     }
     const passChange = (e) => {
+        setValid(true)
         var val = e.target.value;
         setData({
             ...data,
