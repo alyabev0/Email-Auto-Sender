@@ -3,12 +3,14 @@ import React, {useState} from "react";
 import './App.css';
 import MainPage from "./components/MainPage";
 import { Button, ButtonGroup, Input, Flex, Box, Center, Spacer } from '@chakra-ui/react'
-import { EmailIcon } from '@chakra-ui/icons'
+import LeftPanel from "./components/LeftPanel";
+import AuthForm from "./components/AuthForm";
 
 function App() {
   var [sent, setSent] = useState(false)
   var [text, setText] = useState("")
   var [subject, setSubject] = useState("")
+  const [mailData, setMailData] = useState("")
 
   const handleSend = async() => {
     try{
@@ -24,8 +26,11 @@ function App() {
 return (
   <div className="App">
     
+    {/* поменять h на 100%  */}
     <Flex w="100%" h="100vh" bg='teal.100'>
-    <MainPage/>
+    <LeftPanel/>
+    { (mailData == "" ) ? (<AuthForm/>) : (<MainPage/>)}
+    {/* <MainPage/> */}
       </Flex>
 
     

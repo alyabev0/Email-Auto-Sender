@@ -6,8 +6,8 @@ const LeftPanel = () => {
         <React.Fragment>
             <Flex w="20%" minH="100%" bg='teal.200'>
         <Flex alignItems="center" direction="column" w="100%">
-          <EmailIcon w="240px" h="120px"/>
-          <Button w="95%" colorScheme='teal'>Button</Button>
+          <EmailIcon w="240px" h="120px" mt="30px"/>
+          <Button w="95%" colorScheme='teal' mt="70px">Button</Button>
           <Button w="95%" colorScheme='teal' mt="2px">Button</Button>
           <Button w="95%" colorScheme='teal' mt="2px">Button</Button>
         </Flex>
