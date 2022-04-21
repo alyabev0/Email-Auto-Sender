@@ -5,15 +5,18 @@ import { Flex, Button, Input, Text, Center, FormControl, FormLabel, FormHelperTe
 
 const AuthForm = () => {
     const [data, setData] = useState({email: "", pass: ""})
+    const [valid, setValid] = useState(true)
     const validateMail = (mail) => {
         if ((mail == "")||(mail === undefined)){
-            return alert("error")
+            setValid(false)
+            // return alert("error")
         }
         return mail
     }
     const validatePass = (pass) => {
         if ((pass == "")||(pass === undefined)){
-            return alert("error")
+            setValid(false)
+            // return alert("error")
         }
         return pass
     }
@@ -35,11 +38,11 @@ const AuthForm = () => {
         event.preventDefault();
         data.email = validateMail(data.email)
         data.pass = validatePass(data.pass)
-        
         console.log("finally: ", data.email, data.pass)
     }
       console.log(data)
 
+      var validColor = (valid===true?"#319795":"red")
       
     return (
         <React.Fragment>
@@ -57,10 +60,10 @@ const AuthForm = () => {
                     </Flex> */}
 
                     <form onSubmit={handleSubmit}>
-        <input style={{border: "2px solid", borderRadius: "5px", width: "100%", borderColor: "#319795"}} type="text" placeholder="Тут почта..." name="email" value={data.email}
+        <input style={{border: "2px solid", borderRadius: "5px", width: "100%", borderColor: validColor}} type="text" placeholder="Тут почта..." name="email" value={data.email}
          onChange={(event) => mailChange(event)}/>
          
-        <input style={{marginTop: "10px", border: "2px solid #319795", borderRadius: "5px", width: "100%", borderColor: "#319795"}} type="text" placeholder="А вот тут пароль..."
+        <input style={{marginTop: "10px", border: "2px solid", borderRadius: "5px", width: "100%", borderColor: validColor}} type="text" placeholder="А вот тут пароль..."
          name="pass"
          value={data.pass} onChange={(event) => passChange(event)}/>
         <Button m="auto" mt="10px" w="100%" colorScheme='teal' type="submit">Войти</Button>
