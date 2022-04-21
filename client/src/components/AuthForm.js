@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import axios from "axios"
 import { Flex, Button, Input, Text, Center, FormControl, FormLabel, FormHelperText } from '@chakra-ui/react'
 
 
@@ -36,13 +37,25 @@ const AuthForm = () => {
             [e.target.name]: val
           });
     }
-    const handleSubmit =(event)=>{
+    const handleSubmit = async(event)=>{
         event.preventDefault();
         data.email = validateMail(data.email)
         data.pass = validatePass(data.pass)
         console.log("finally: ", data.email, data.pass)
+
+        try{
+            await axios.post('http://localhost:3001/auth', {
+              email: data.email, pass: data.pass
+            })
+          } catch (error) {
+            console.log(error)
+          }
+          console.log("end of handleSubmit")
     }
-      console.log(data)
+    //   console.log(data)
+
+
+
 
       var validColor = (valid===true?"#319795":"red")
       
