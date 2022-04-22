@@ -18,23 +18,26 @@ app.post("/auth", cors(), async (req, res) => {
     console.log(req.body, typeof(req.body))
     var data = req.body
     email = JSON.stringify(data.email)
-    fs.writeFileSync("DATA.js", email)
+    pass = JSON.stringify(data.pass)
+    fs.writeFileSync("email.js", email)
+    fs.writeFileSync("pass.js", pass)
     console.log(data, typeof(data))
 })
 
 app.post("/send_mail", cors(), async (req, res) => {
     let {text, subject} = req.body
     console.log(req.body)
-    let email = fs.readFileSync("DATA.js", "utf-8")
+    let email = fs.readFileSync("email.js", "utf-8")
     email = (email.replace(/^"(.*)"$/, '$1'))
-    console.log(email)
-    let email2 = "alyabev1998@gmail.com"
-    console.log(email, email2)
+    let pass = fs.readFileSync("pass.js", "utf-8")
+    pass = (pass.replace(/^"(.*)"$/, '$1'))
+    console.log(email, pass)
+    // let email2 = "alyabev1998@gmail.com"
     const transporter = nodemailer.createTransport({
         service: "gmail",
         auth: {
             user: email,
-            pass: "Zaqwest123!"
+            pass: pass
         }
     })
 
