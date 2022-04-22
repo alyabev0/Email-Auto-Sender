@@ -1,12 +1,14 @@
 import React, {useState} from 'react'
 import axios from "axios"
-import { Flex, Button, Input, Text, Center, FormControl, FormLabel, FormHelperText } from '@chakra-ui/react'
+import { Flex, Button, Input, Text, Center, InputGroup, InputRightElement} from '@chakra-ui/react'
 
 
 
 const AuthForm = ({setIsData}) => {
     const [data, setData] = useState({email: "", pass: ""})
     const [valid, setValid] = useState(true)
+
+    const [show, setShow] = React.useState(false)
     // const [isData, setIsData] = useState(false)
     // const validateMail = (mail) => {
     //     if ((mail == "")&(mail === undefined)){
@@ -83,9 +85,25 @@ const AuthForm = ({setIsData}) => {
         <input style={{border: "2px solid", borderRadius: "5px", width: "100%", borderColor: validColor}} type="text" placeholder="Тут почта..." name="email" value={data.email}
          onChange={(event) => mailChange(event)}/>
          
-        <input style={{marginTop: "10px", border: "2px solid", borderRadius: "5px", width: "100%", borderColor: validColor}} type="text" placeholder="А вот тут пароль..."
+        <input style={{marginTop: "10px", border: "2px solid", borderRadius: "5px", width: "100%", borderColor: validColor}} type="password" placeholder="А вот тут пароль..."
          name="pass"
          value={data.pass} onChange={(event) => passChange(event)}/>
+
+
+{/* <InputGroup mt="10px" w="100%">
+      <Input
+        type={show ? 'text' : 'password'}
+        placeholder='А вот тут пароль...'
+        style={{border: "2px solid", borderColor: validColor}}
+      />
+      <InputRightElement width='4.5rem'>
+        <Button h='1.75rem' size='sm' onClick={() => setShow(!show)}>
+          {show ? 'Hide' : 'Show'}
+        </Button>
+      </InputRightElement>
+    </InputGroup> */}
+
+
         <Button m="auto" mt="10px" w="100%" colorScheme='teal' type="submit">Войти</Button>
       </form>
 
