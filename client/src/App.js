@@ -24,13 +24,20 @@ function App() {
       console.log(error)
     }
   }
+  // console.log(isData)
+  // if (isData === true){
+  //   localStorage.setItem('isData', isData);
+  // } 
+
+  console.log(localStorage.getItem("isData"), typeof(localStorage.getItem("isData")))
 return (
   <div className="App">
     
     {/* поменять h на 100%  */}
     <Flex w="100%" h="100vh" bg='white'>
     <LeftPanel/>
-    { (isData === false ) ? (<AuthForm setIsData={setIsData}/>) : (<MainPage/>)}
+    { (localStorage.getItem('isData') == "false" ) ? (<AuthForm setIsData={setIsData}/>) : (<MainPage/>)}
+    {/* { (isData === false ) ? (<AuthForm setIsData={setIsData}/>) : (<MainPage/>)} */}
     {/* <MainPage /> */}
 
 

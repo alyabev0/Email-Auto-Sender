@@ -48,6 +48,7 @@ const AuthForm = ({setIsData}) => {
         // console.log(valid)
         if ((data.email != ("")||(undefined))&(data.pass != ("")||(undefined))) {
             setIsData(true)
+            localStorage.setItem('isData', "true");
         try{
             await axios.post('http://localhost:3001/auth', {
               email: data.email,
@@ -60,6 +61,7 @@ const AuthForm = ({setIsData}) => {
     } else {
         setValid(false)
         setIsData(false)
+        localStorage.setItem('isData', "false");
     }
 }
     //   console.log(data)
