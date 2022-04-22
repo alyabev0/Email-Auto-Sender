@@ -7,20 +7,20 @@ import { Flex, Button, Input, Text, Center, FormControl, FormLabel, FormHelperTe
 const AuthForm = () => {
     const [data, setData] = useState({email: "", pass: ""})
     const [valid, setValid] = useState(true)
-    const validateMail = (mail) => {
-        if ((mail == "")&(mail === undefined)){
-            setValid(false)
-            // return alert("error")
-        }
-        return mail
-    }
-    const validatePass = (pass) => {
-        if ((pass == "")&(pass === undefined)){
-            setValid(false)
-            // return alert("error")
-        }
-        return pass
-    }
+    // const validateMail = (mail) => {
+    //     if ((mail == "")&(mail === undefined)){
+    //         setValid(false)
+    //         // return alert("error")
+    //     }
+    //     return mail
+    // }
+    // const validatePass = (pass) => {
+    //     if ((pass == "")&(pass === undefined)){
+    //         setValid(false)
+    //         // return alert("error")
+    //     }
+    //     return pass
+    // }
     const mailChange = (e) => {
         setValid(true)
         var val = e.target.value;
@@ -39,8 +39,8 @@ const AuthForm = () => {
     }
     const handleSubmit = async(event)=>{
         event.preventDefault();
-        data.email = validateMail(data.email)
-        data.pass = validatePass(data.pass)
+        // data.email = validateMail(data.email)
+        // data.pass = validatePass(data.pass)
         console.log("finally: ", data.email, data.pass)
         console.log(valid)
         if ((data.email != ("")||(undefined))&(data.pass != ("")||(undefined))) {
