@@ -35,8 +35,13 @@ return (
     
     {/* поменять h на 100%  */}
     <Flex w="100%" h="100vh" bg='white'>
+    {/* <LeftPanel/> */}
+    { (localStorage.getItem('isData') == "false" ) ? (<AuthForm setIsData={setIsData}/>) : (
+      <React.Fragment>
     <LeftPanel/>
-    { (localStorage.getItem('isData') == "false" ) ? (<AuthForm setIsData={setIsData}/>) : (<MainPage/>)}
+    <MainPage/>
+    </React.Fragment>
+    )}
     {/* { (isData === false ) ? (<AuthForm setIsData={setIsData}/>) : (<MainPage/>)} */}
     {/* <MainPage /> */}
 

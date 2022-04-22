@@ -70,7 +70,7 @@ const AuthForm = ({setIsData}) => {
       
     return (
         <React.Fragment>
-            <Flex w="80%" minH="100%" direction="column" alignItems="center" bg="white">
+            <Flex w="100%" minH="100%" direction="column" alignItems="center" bg="white">
                 <Center w="30%" h="40px" mt="10%" fontSize="5xl">
                     <h1>Авторизуйтесь</h1>
                 </Center>
