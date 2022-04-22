@@ -44,25 +44,23 @@ const AuthForm = () => {
         console.log("finally: ", data.email, data.pass)
 
         try{
-            await axios.post('http://localhost:3001/auth', {
-              email: data.email, pass: data.pass
+            await axios.post('http://localhost:3001/send_mail', {
+              email: data.email,
+              pass: data.pass
             })
           } catch (error) {
             console.log(error)
           }
-          console.log("end of handleSubmit")
+
     }
     //   console.log(data)
-
-
-
 
       var validColor = (valid===true?"#319795":"red")
       
     return (
         <React.Fragment>
-            <Flex w="80%" minH="100%" direction="column" justifyContent="center" alignItems="center" bg="white">
-                <Center w="30%" h="40px" fontSize="5xl">
+            <Flex w="80%" minH="100%" direction="column" alignItems="center" bg="white">
+                <Center w="30%" h="40px" mt="10%" fontSize="5xl">
                     <h1>Авторизуйтесь</h1>
                 </Center>
                 <Flex w="25%" h="150px" mt="20px">

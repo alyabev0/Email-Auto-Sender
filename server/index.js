@@ -1,7 +1,7 @@
 const express = require("express")
 const app = express()
 require('dotenv').config()
-
+const fs = require('fs');
 const bodyParser = require("body-parser")
 const cors = require("cors")
 const nodemailer = require("nodemailer") 
@@ -13,26 +13,27 @@ app.use(cors())
 // let mailer = require("./mailer")
 // mailer.sendMail()
 
-// app.post("/auth", cors(), async (req, res) => {
-//     var { email, pass } = req.body
-//     console.log(req.body)
-//     var transporter = nodemailer.createTransport({
-//         service: "gmail",
-//         auth: {
-//             user: email,
-//             pass: pass
-//         }
-//     })
-//     console.log("success!")
-// })
+app.post("/auth", cors(), async (req, res) => {
+    // var { email, pass } = req.body
+    console.log(req.body, typeof(req.body))
+    var data = req.body
+    email = JSON.stringify(data.email)
+    fs.writeFileSync("DATA.js", email)
+    console.log(data, typeof(data))
+})
 
 app.post("/send_mail", cors(), async (req, res) => {
     let {text, subject} = req.body
     console.log(req.body)
+    let email = fs.readFileSync("DATA.js", "utf-8")
+    email = (email.replace(/^"(.*)"$/, '$1'))
+    console.log(email)
+    let email2 = "alyabev1998@gmail.com"
+    console.log(email, email2)
     const transporter = nodemailer.createTransport({
         service: "gmail",
         auth: {
-            user: "alyabev1998@gmail.com",
+            user: email,
             pass: "Zaqwest123!"
         }
     })
