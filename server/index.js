@@ -31,6 +31,7 @@ app.post("/send_mail", cors(), async (req, res) => {
     email = (email.replace(/^"(.*)"$/, '$1'))
     let pass = fs.readFileSync("pass.js", "utf-8")
     pass = (pass.replace(/^"(.*)"$/, '$1'))
+    console.log(text, subject)
     console.log(email, pass)
     // let email2 = "alyabev1998@gmail.com"
     const transporter = nodemailer.createTransport({
