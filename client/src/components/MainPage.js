@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import { Button, Flex, Input, Textarea} from '@chakra-ui/react'
+import LeftPanel from './LeftPanel'
 
 const MainPage = () => {
     var [text, setText] = useState("")
@@ -21,7 +22,9 @@ const MainPage = () => {
       }
 
     return (
+        
         <React.Fragment>
+            <LeftPanel/>
              
     {/* поменять h на 100%  */}
       <Flex w="80%" minH="100%" direction="column" alignItems="center">

@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import axios from "axios"
 import { Flex, Button, Input, Text, Center, InputGroup, InputRightElement} from '@chakra-ui/react'
+import { Navigate } from 'react-router-dom'
 
 
 
@@ -46,8 +47,9 @@ const AuthForm = ({setIsData}) => {
         console.log("finally: ", data.email, data.pass)
         // console.log(valid)
         if ((data.email != ("")||(undefined))&((data.pass != ("")||(undefined))&(data.email.includes("@")))) {
-            setIsData(true)
+            // setIsData(true)
             localStorage.setItem('isData', "true");
+            window.location.reload()
         try{
             await axios.post('http://localhost:3001/auth', {
               email: data.email,
@@ -59,7 +61,7 @@ const AuthForm = ({setIsData}) => {
 
     } else {
         setValid(false)
-        setIsData(false)
+        // setIsData(false)
         localStorage.setItem('isData', "false");
     }
 }
@@ -92,21 +94,6 @@ const AuthForm = ({setIsData}) => {
         <input style={{marginTop: "10px", border: "2px solid", borderRadius: "5px", width: "100%", borderColor: validColor}} type="password" placeholder="А вот тут пароль..."
          name="pass"
          value={data.pass} onChange={(event) => passChange(event)}/>
-
-
-{/* <InputGroup mt="10px" w="100%">
-      <Input
-        type={show ? 'text' : 'password'}
-        placeholder='А вот тут пароль...'
-        style={{border: "2px solid", borderColor: validColor}}
-      />
-      <InputRightElement width='4.5rem'>
-        <Button h='1.75rem' size='sm' onClick={() => setShow(!show)}>
-          {show ? 'Hide' : 'Show'}
-        </Button>
-      </InputRightElement>
-    </InputGroup> */}
-
 
         <Button m="auto" mt="10px" w="100%"
          colorScheme='teal' bgGradient='linear(to-r, teal.300, teal.600)'

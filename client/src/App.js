@@ -6,7 +6,7 @@ import { Button, ButtonGroup, Input, Flex, Box, Center, Spacer } from '@chakra-u
 import LeftPanel from "./components/LeftPanel";
 import AuthForm from "./components/AuthForm";
 import Templates from "./pages/Templates";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link, Navigate } from "react-router-dom";
 
 function App() {
   var [sent, setSent] = useState(false)
@@ -38,19 +38,18 @@ return (
     {/* поменять h на 100%  */}
     <Flex w="100%" h="100vh" bg='white'>
     {/* <LeftPanel/> */}
-    { (localStorage.getItem('isData') == "false" ) ? (<AuthForm setIsData={setIsData}/>) : (
+
+    {/* { (localStorage.getItem('isData') == "false" ) ? (<AuthForm setIsData={setIsData}/>) : (
       <React.Fragment>
-    <LeftPanel/>
+
     <MainPage/>
     </React.Fragment>
-    )}
-    <Routes>
+    )} */}
+    <Routes>        
+        <Route path="/" element={(localStorage.getItem('isData') == "true" ) ? <MainPage /> : <AuthForm/> }/>
+        <Route path="auth" element={<AuthForm />} />
         <Route path="templates" element={<Templates />} />
       </Routes>
-    {/* { (isData === false ) ? (<AuthForm setIsData={setIsData}/>) : (<MainPage/>)} */}
-    {/* <MainPage /> */}
-
-
       </Flex>
 
     
