@@ -5,6 +5,8 @@ import MainPage from "./components/MainPage";
 import { Button, ButtonGroup, Input, Flex, Box, Center, Spacer } from '@chakra-ui/react'
 import LeftPanel from "./components/LeftPanel";
 import AuthForm from "./components/AuthForm";
+import Templates from "./pages/Templates";
+import { Routes, Route, Link } from "react-router-dom";
 
 function App() {
   var [sent, setSent] = useState(false)
@@ -42,6 +44,9 @@ return (
     <MainPage/>
     </React.Fragment>
     )}
+    <Routes>
+        <Route path="templates" element={<Templates />} />
+      </Routes>
     {/* { (isData === false ) ? (<AuthForm setIsData={setIsData}/>) : (<MainPage/>)} */}
     {/* <MainPage /> */}
 

@@ -8,7 +8,6 @@ const AuthForm = ({setIsData}) => {
     const [data, setData] = useState({email: "", pass: ""})
     const [valid, setValid] = useState(true)
 
-    const [show, setShow] = React.useState(false)
     // const [isData, setIsData] = useState(false)
     // const validateMail = (mail) => {
     //     if ((mail == "")&(mail === undefined)){
@@ -46,7 +45,7 @@ const AuthForm = ({setIsData}) => {
         // data.pass = validatePass(data.pass)
         console.log("finally: ", data.email, data.pass)
         // console.log(valid)
-        if ((data.email != ("")||(undefined))&(data.pass != ("")||(undefined))) {
+        if ((data.email != ("")||(undefined))&((data.pass != ("")||(undefined))&(data.email.includes("@")))) {
             setIsData(true)
             localStorage.setItem('isData', "true");
         try{
@@ -72,7 +71,10 @@ const AuthForm = ({setIsData}) => {
         <React.Fragment>
             <Flex w="100%" minH="100%" direction="column" alignItems="center" bg="white">
                 <Center w="30%" h="40px" mt="10%" fontSize="5xl">
-                    <h1>Авторизуйтесь</h1>
+                    <Text fontSize="6xl" bgGradient='linear(to-t, teal.300, teal.600)'
+                     bgClip='text'  fontWeight='semibold'>
+                         Авторизация
+                         </Text>
                 </Center>
                 <Flex w="25%" h="150px" mt="20px">
 
@@ -106,15 +108,10 @@ const AuthForm = ({setIsData}) => {
     </InputGroup> */}
 
 
-        <Button m="auto" mt="10px" w="100%" colorScheme='teal' type="submit">Войти</Button>
+        <Button m="auto" mt="10px" w="100%"
+         colorScheme='teal' bgGradient='linear(to-r, teal.300, teal.600)'
+          type="submit">Войти</Button>
       </form>
-
-
-
-
-
-
-
 
 
             </Flex>

@@ -1,10 +1,10 @@
 const express = require("express")
-const app = express()
-require('dotenv').config()
 const fs = require('fs');
 const bodyParser = require("body-parser")
 const cors = require("cors")
 const nodemailer = require("nodemailer") 
+const app = express()
+require('dotenv').config()
 
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
@@ -33,7 +33,6 @@ app.post("/send_mail", cors(), async (req, res) => {
     pass = (pass.replace(/^"(.*)"$/, '$1'))
     console.log(text, subject)
     console.log(email, pass)
-    // let email2 = "alyabev1998@gmail.com"
     const transporter = nodemailer.createTransport({
         service: "gmail",
         auth: {
@@ -43,12 +42,12 @@ app.post("/send_mail", cors(), async (req, res) => {
     })
 
     const mailOptions = {
-        from: "alyabev1998@gmail.com",
+        from: email,
         to: receiver,
         subject: subject,
         text: text 
     }
-
+    
     await transporter.sendMail(mailOptions)
 })
 
