@@ -25,7 +25,7 @@ app.post("/auth", cors(), async (req, res) => {
 })
 
 app.post("/send_mail", cors(), async (req, res) => {
-    let {text, subject} = req.body
+    let {receiver, subject, text} = req.body
     console.log(req.body)
     let email = fs.readFileSync("email.js", "utf-8")
     email = (email.replace(/^"(.*)"$/, '$1'))
@@ -44,7 +44,7 @@ app.post("/send_mail", cors(), async (req, res) => {
 
     const mailOptions = {
         from: "alyabev1998@gmail.com",
-        to: "alyabev1998@gmail.com",
+        to: receiver,
         subject: subject,
         text: text 
     }
