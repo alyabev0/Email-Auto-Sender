@@ -4,9 +4,10 @@ import { Flex, Button, Input, Text, Center, FormControl, FormLabel, FormHelperTe
 
 
 
-const AuthForm = () => {
+const AuthForm = (props) => {
     const [data, setData] = useState({email: "", pass: ""})
     const [valid, setValid] = useState(true)
+    const [isData, setIsData] = useState(false)
     // const validateMail = (mail) => {
     //     if ((mail == "")&(mail === undefined)){
     //         setValid(false)
@@ -42,8 +43,9 @@ const AuthForm = () => {
         // data.email = validateMail(data.email)
         // data.pass = validatePass(data.pass)
         console.log("finally: ", data.email, data.pass)
-        console.log(valid)
+        // console.log(valid)
         if ((data.email != ("")||(undefined))&(data.pass != ("")||(undefined))) {
+            setIsData(true)
         try{
             await axios.post('http://localhost:3001/auth', {
               email: data.email,
@@ -55,10 +57,11 @@ const AuthForm = () => {
 
     } else {
         setValid(false)
+        setIsData(false)
     }
 }
     //   console.log(data)
-
+console.log(isData)
       var validColor = (valid===true?"#319795":"red")
       
     return (
