@@ -4,10 +4,10 @@ import { Flex, Button, Input, Text, Center, FormControl, FormLabel, FormHelperTe
 
 
 
-const AuthForm = (props) => {
+const AuthForm = ({setIsData}) => {
     const [data, setData] = useState({email: "", pass: ""})
     const [valid, setValid] = useState(true)
-    const [isData, setIsData] = useState(false)
+    // const [isData, setIsData] = useState(false)
     // const validateMail = (mail) => {
     //     if ((mail == "")&(mail === undefined)){
     //         setValid(false)
@@ -61,7 +61,7 @@ const AuthForm = (props) => {
     }
 }
     //   console.log(data)
-console.log(isData)
+// console.log(isData)
       var validColor = (valid===true?"#319795":"red")
       
     return (

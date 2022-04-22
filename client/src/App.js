@@ -12,6 +12,30 @@ function App() {
   var [subject, setSubject] = useState("")
   const [isData, setIsData] = useState(false)
 
+
+//   const handleSubmit = async(event)=>{
+//     event.preventDefault();
+//     // data.email = validateMail(data.email)
+//     // data.pass = validatePass(data.pass)
+//     console.log("finally: ", data.email, data.pass)
+//     // console.log(valid)
+//     if ((data.email != ("")||(undefined))&(data.pass != ("")||(undefined))) {
+//         setIsData(true)
+//     try{
+//         await axios.post('http://localhost:3001/auth', {
+//           email: data.email,
+//           pass: data.pass
+//         })
+//       } catch (error) {
+//         console.log(error)
+//       }
+
+// } else {
+//     setValid(false)
+//     setIsData(false)
+// }
+// }
+
   const handleSend = async() => {
     try{
       await axios.post('http://localhost:3001/send_mail', {
@@ -29,7 +53,7 @@ return (
     {/* поменять h на 100%  */}
     <Flex w="100%" h="100vh" bg='teal.100'>
     <LeftPanel/>
-    { (isData === false ) ? (<AuthForm/>) : (<MainPage/>)}
+    { (isData === false ) ? (<AuthForm setIsData={setIsData}/>) : (<MainPage/>)}
     {/* <MainPage/> */}
       </Flex>
 
