@@ -8,14 +8,14 @@ const AuthForm = () => {
     const [data, setData] = useState({email: "", pass: ""})
     const [valid, setValid] = useState(true)
     const validateMail = (mail) => {
-        if ((mail == "")||(mail === undefined)){
+        if ((mail == "")&(mail === undefined)){
             setValid(false)
             // return alert("error")
         }
         return mail
     }
     const validatePass = (pass) => {
-        if ((pass == "")||(pass === undefined)){
+        if ((pass == "")&(pass === undefined)){
             setValid(false)
             // return alert("error")
         }
@@ -42,9 +42,10 @@ const AuthForm = () => {
         data.email = validateMail(data.email)
         data.pass = validatePass(data.pass)
         console.log("finally: ", data.email, data.pass)
-
+        console.log(valid)
+        if ((data.email != ("")||(undefined))&(data.pass != ("")||(undefined))) {
         try{
-            await axios.post('http://localhost:3001/send_mail', {
+            await axios.post('http://localhost:3001/auth', {
               email: data.email,
               pass: data.pass
             })
@@ -52,7 +53,10 @@ const AuthForm = () => {
             console.log(error)
           }
 
+    } else {
+        setValid(false)
     }
+}
     //   console.log(data)
 
       var validColor = (valid===true?"#319795":"red")
