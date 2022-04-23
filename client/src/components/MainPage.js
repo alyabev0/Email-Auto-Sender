@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import { Button, Flex, Input, Textarea} from '@chakra-ui/react'
+import { Button, Flex, Input, Textarea, Text} from '@chakra-ui/react'
 import LeftPanel from './LeftPanel'
 
 const MainPage = () => {
@@ -20,7 +20,7 @@ const MainPage = () => {
           console.log(error)
         }
       }
-
+console.log(text)
     return (
         
         <React.Fragment>
@@ -29,14 +29,19 @@ const MainPage = () => {
     {/* поменять h на 100%  */}
       <Flex w="80%" minH="100%" direction="column" alignItems="center">
 
-          <Flex w="30%" direction="column" mt="15%">
+        <Flex justifyContent="center" alignItems="center" mt="4%">
+          <Text fontWeight='300' 
+          fontSize="50px">Массовая рассылка</Text>
+        </Flex>
+
+          <Flex w="60%" direction="column" mt="9%">
       <form onSubmit={handleSend}>
 
-        <Input focusBorderColor='teal.500' type="text" placeholder="Получатель"
+        <Input focusBorderColor='teal.500' type="text" placeholder="Получатели через запятую"
         value={receiver} onChange={(event) => setReceiver(event.target.value)}/>
         <Input focusBorderColor='teal.500' type="text" placeholder="Тема"
          value={subject} onChange={(event) => setSubject(event.target.value)} />
-         <Textarea focusBorderColor='teal.500' placeholder="Текст письма"
+         <Textarea focusBorderColor='teal.500' placeholder="Напишите адресатам всё, что Вы о них думаете!"
          value={text} onChange={(event) => setText(event.target.value)} />
         <Button colorScheme='teal' type="submit">Отправить</Button>
 
