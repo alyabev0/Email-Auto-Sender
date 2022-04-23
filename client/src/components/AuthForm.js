@@ -67,7 +67,8 @@ const AuthForm = ({setIsData}) => {
 }
     //   console.log(data)
 // console.log(isData)
-      var validColor = (valid===true?"#319795":"red")
+    //   var validColor = (valid===true?"#319795":"red")
+    var validColor = (valid===true?"":"red")
       
     return (
         <React.Fragment>
@@ -88,14 +89,23 @@ const AuthForm = ({setIsData}) => {
                     </Flex> */}
 
                     <form onSubmit={handleSubmit}>
-        <input style={{border: "2px solid", borderRadius: "5px", width: "100%", borderColor: validColor}} type="text" placeholder="Тут почта..." name="email" value={data.email}
-         onChange={(event) => mailChange(event)}/>
+        {/* <input style={{border: "2px solid", borderRadius: "5px", width: "100%", borderColor: validColor}} type="text" placeholder="Тут почта..." name="email" value={data.email}
+         onChange={(event) => mailChange(event)}/> */}
          
-        <input style={{marginTop: "10px", border: "2px solid", borderRadius: "5px", width: "100%", borderColor: validColor}} type="password" placeholder="А вот тут пароль..."
+        {/* <input style={{marginTop: "10px", border: "2px solid", borderRadius: "5px", width: "100%", borderColor: validColor}} type="password" placeholder="А вот тут пароль..."
          name="pass"
-         value={data.pass} onChange={(event) => passChange(event)}/>
+         value={data.pass} onChange={(event) => passChange(event)}/> */}
 
-        <Button m="auto" mt="10px" w="100%"
+
+        <Input style={{borderColor: validColor}}  type="text" placeholder="Тут почта..."
+        name="email" value={data.email} focusBorderColor='teal.400' mt="10px"
+         onChange={(event) => mailChange(event)}/>
+
+        <Input style={{borderColor: validColor}}  type="password" placeholder="А вот тут пароль..."
+        name="pass" value={data.pass} focusBorderColor='teal.400' mt="10px"
+         onChange={(event) => passChange(event)}/>
+
+        <Button m="auto" mt="20px" w="100%"
          colorScheme='teal' bgGradient='linear(to-r, teal.300, teal.600)'
           type="submit">Войти</Button>
       </form>

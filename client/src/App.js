@@ -1,6 +1,5 @@
 import axios from "axios"
 import React, {useState} from "react";
-import './App.css';
 import MainPage from "./components/MainPage";
 import { Button, ButtonGroup, Input, Flex, Box, Center, Spacer } from '@chakra-ui/react'
 import LeftPanel from "./components/LeftPanel";
