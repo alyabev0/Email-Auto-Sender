@@ -47,7 +47,7 @@ return (
     <Routes>        
         <Route path="/" element={(localStorage.getItem('isData') == "true" ) ? <MainPage /> : <AuthForm/> }/>
         <Route path="auth" element={<AuthForm />} />
-        <Route path="templates" element={<Templates />} />
+        <Route path="templates" element={(localStorage.getItem('isData') == "true" ) ? <Templates /> : <AuthForm/> } />
       </Routes>
       </Flex>
 

@@ -5,7 +5,9 @@ import { Link } from 'react-router-dom'
 const LeftPanel = () => {
     const logOut = () => {
         localStorage.setItem('isData', "false");
-        window.location.reload()
+        document.location='/'
+        // window.location.reload()
+
     }
     return (
         <React.Fragment>
