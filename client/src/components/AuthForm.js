@@ -103,6 +103,13 @@ const AuthForm = ({setIsData}) => {
 
             </Flex>
             </Flex>
+
+            {/* <style jsx="true">{`
+        input{
+
+        }
+      `}
+      </style> */}
         </React.Fragment>
     )
 }
