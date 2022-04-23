@@ -30,18 +30,19 @@ console.log(text)
       <Flex w="80%" minH="100%" direction="column" alignItems="center">
 
         <Flex justifyContent="center" alignItems="center" mt="4%">
-          <Text fontWeight='300'
+          <Text fontWeight='300' textAlign="center"
           fontSize="50px">Массовая рассылка</Text>
         </Flex>
 
           <Flex w="60%" direction="column" mt="9%">
       <form onSubmit={handleSend}>
 
-        <Input focusBorderColor='teal.500' type="text" placeholder="Получатель (если несколько, то через запятую)"
+        <Input focusBorderColor='teal.400' type="text" placeholder="Получатель (если несколько, то через запятую)"
         value={receiver} onChange={(event) => setReceiver(event.target.value)}/>
-        <Input focusBorderColor='teal.500' type="text" placeholder="Тема"
+        <Input focusBorderColor='teal.400' type="text" placeholder="Тема"
          value={subject} onChange={(event) => setSubject(event.target.value)} />
-         <Textarea focusBorderColor='teal.500' placeholder="Напишите адресатам всё, что Вы о них думаете!"
+         
+         <Textarea focusBorderColor='teal.400' placeholder="Напишите адресатам всё, что Вы о них думаете!"
          value={text} onChange={(event) => setText(event.target.value)} spellCheck="false"/>
         <Button colorScheme='teal' type="submit">Отправить</Button>
 

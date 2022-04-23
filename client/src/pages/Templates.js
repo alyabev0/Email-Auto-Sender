@@ -1,5 +1,5 @@
 import React from 'react'
-import { Flex, Text, Menu, MenuButton, MenuList, MenuItem, Button, Textarea, EditableTextarea  } from '@chakra-ui/react'
+import { Flex, Text, Menu, MenuButton, MenuList, MenuItem, Button, Textarea, Input, InputGroup, InputLeftAddon, Center} from '@chakra-ui/react'
 import { ChevronDownIcon } from '@chakra-ui/icons'
 import LeftPanel from '../components/LeftPanel'
 const Templates = () => {
@@ -9,26 +9,75 @@ const Templates = () => {
             <Flex w="80%" minH="100%" direction="column" alignItems="center">
             <Flex justifyContent="center" alignItems="center" mt="4%">
           <Text fontWeight='300'
-          fontSize="50px">Шаблоны писем</Text>
+          fontSize="50px" textAlign="center">Шаблоны писем</Text>
         </Flex>
         
-        <Flex w="60%" minH="100px" direction="column" mt="9%" border='1px' borderColor='gray.200'
-        boxShadow='sm' borderTopRightRadius="7px" borderTopLeftRadius="7px">
-            {/* <Flex w="100%" minH="20%" border='1px' borderColor='gray.200'></Flex>
-            <Flex w="100%" minH="80%" border='1px' borderColor='gray.200'>
-                <Textarea h="100%" maxH="100%" focusBorderColor='teal.500'></Textarea>
-            </Flex> */}
+        <Flex w="60%" minH="120px" maxH="30%" minW="360px" direction="row" mt="9%" border='1px' borderColor='gray.200'
+        boxShadow='sm' borderTopRightRadius="7px" borderTopLeftRadius="7px" flexWrap="wrap" justifyContent="space-between">
 
+            <Flex alignItems="center" justifyContent="center" maxH="40px" minW="171px" w="30%" >
+                <Flex alignItems="center" justifyContent="center" border="1px" borderBottomLeftRadius="7px" borderTopLeftRadius="7px"
+            borderTopRightRadius="none" borderBottomRightRadius="none" borderColor='gray.200' h="100%" w="40%" bgColor="#edf2f7">
+            <Text textAlign="center" display="flex" alignItems="center" justifyContent="center" h="100%" fontSize='xs'>Имя получателя:</Text>
+            </Flex>
+            <Input h="100%" w="60%" placeholder='Ввод...' size='xs' focusBorderColor='teal.400'
+            borderBottomLeftRadius="none" borderTopLeftRadius="none" borderTopRightRadius="7px" borderBottomRightRadius="7px"/>
+      </Flex>
+
+      <Flex alignItems="center" justifyContent="center" maxH="40px" minW="171px" w="30%" >
+                <Flex alignItems="center" justifyContent="center" border="1px" borderBottomLeftRadius="7px" borderTopLeftRadius="7px"
+            borderTopRightRadius="none" borderBottomRightRadius="none" borderColor='gray.200' h="100%" w="40%" bgColor="#edf2f7">
+            <Text textAlign="center" display="flex" alignItems="center" justifyContent="center" h="100%" fontSize='xs'>Имя получателя:</Text>
+            </Flex>
+            <Input h="100%" w="60%" placeholder='Ввод...' size='xs' focusBorderColor='teal.400'
+            borderBottomLeftRadius="none" borderTopLeftRadius="none" borderTopRightRadius="7px" borderBottomRightRadius="7px"/>
+      </Flex>
+
+      <Flex alignItems="center" justifyContent="center" maxH="40px" minW="171px" w="30%" >
+                <Flex alignItems="center" justifyContent="center" border="1px" borderBottomLeftRadius="7px" borderTopLeftRadius="7px"
+            borderTopRightRadius="none" borderBottomRightRadius="none" borderColor='gray.200' h="100%" w="40%" bgColor="#edf2f7">
+            <Text textAlign="center" display="flex" alignItems="center" justifyContent="center" h="100%" fontSize='xs'>Имя получателя:</Text>
+            </Flex>
+            <Input h="100%" w="60%" placeholder='Ввод...' size='xs' focusBorderColor='teal.400'
+            borderBottomLeftRadius="none" borderTopLeftRadius="none" borderTopRightRadius="7px" borderBottomRightRadius="7px"/>
+      </Flex>
+
+      <Flex alignItems="center" justifyContent="center" maxH="40px" minW="171px" w="30%" >
+                <Flex alignItems="center" justifyContent="center" border="1px" borderBottomLeftRadius="7px" borderTopLeftRadius="7px"
+            borderTopRightRadius="none" borderBottomRightRadius="none" borderColor='gray.200' h="100%" w="40%" bgColor="#edf2f7">
+            <Text textAlign="center" display="flex" alignItems="center" justifyContent="center" h="100%" fontSize='xs'>Имя получателя:</Text>
+            </Flex>
+            <Input h="100%" w="60%" placeholder='Ввод...' size='xs' focusBorderColor='teal.400'
+            borderBottomLeftRadius="none" borderTopLeftRadius="none" borderTopRightRadius="7px" borderBottomRightRadius="7px"/>
+      </Flex>
+
+      <Flex alignItems="center" justifyContent="center" maxH="40px" minW="171px" w="30%" >
+                <Flex alignItems="center" justifyContent="center" border="1px" borderBottomLeftRadius="7px" borderTopLeftRadius="7px"
+            borderTopRightRadius="none" borderBottomRightRadius="none" borderColor='gray.200' h="100%" w="40%" bgColor="#edf2f7">
+            <Text textAlign="center" display="flex" alignItems="center" justifyContent="center" h="100%" fontSize='xs'>Имя получателя:</Text>
+            </Flex>
+            <Input h="100%" w="60%" placeholder='Ввод...' size='xs' focusBorderColor='teal.400'
+            borderBottomLeftRadius="none" borderTopLeftRadius="none" borderTopRightRadius="7px" borderBottomRightRadius="7px"/>
+      </Flex>
+
+      <Flex alignItems="center" justifyContent="center" maxH="40px" minW="171px" w="30%" >
+                <Flex alignItems="center" justifyContent="center" border="1px" borderBottomLeftRadius="7px" borderTopLeftRadius="7px"
+            borderTopRightRadius="none" borderBottomRightRadius="none" borderColor='gray.200' h="100%" w="40%" bgColor="#edf2f7">
+            <Text textAlign="center" display="flex" alignItems="center" justifyContent="center" h="100%" fontSize='xs'>Имя получателя:</Text>
+            </Flex>
+            <Input h="100%" w="60%" placeholder='Ввод...' size='xs' focusBorderColor='teal.400'
+            borderBottomLeftRadius="none" borderTopLeftRadius="none" borderTopRightRadius="7px" borderBottomRightRadius="7px"/>
+      </Flex>
 
         </Flex>
 
-        <Flex w="60%" minH="150px" direction="column" border='1px' borderColor='gray.200'
-          boxShadow='sm'
-          borderBottomRightRadius="7px" borderBottomLeftRadius="7px">
-        <Textarea maxH="100%" minH="100%" focusBorderColor='teal.500' borderTopRightRadius="none" borderTopLeftRadius="none"
-        borderBottomRightRadius="7px" borderBottomLeftRadius="7px" spellCheck="false">
+        <Flex w="60%" minH="150px" minW="360px" direction="column" border='1px' borderColor='gray.200'
+          boxShadow='sm' borderBottomRightRadius="7px" borderBottomLeftRadius="7px">
 
-        </Textarea>
+
+
+        <Textarea minW="325px" maxH="100%" minH="100%" focusBorderColor='teal.400' borderTopRightRadius="none" borderTopLeftRadius="none"
+        borderBottomRightRadius="7px" borderBottomLeftRadius="7px" spellCheck="false" />
         </Flex>
 
 
