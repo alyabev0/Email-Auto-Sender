@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
 import axios from "axios"
-import { Flex, Button, Input, Text, Center, InputGroup, InputRightElement} from '@chakra-ui/react'
-import { Navigate } from 'react-router-dom'
+import { Flex, Button, Input, Text, Center} from '@chakra-ui/react'
 
 
 
@@ -9,21 +8,6 @@ const AuthForm = ({setIsData}) => {
     const [data, setData] = useState({email: "", pass: ""})
     const [valid, setValid] = useState(true)
 
-    // const [isData, setIsData] = useState(false)
-    // const validateMail = (mail) => {
-    //     if ((mail == "")&(mail === undefined)){
-    //         setValid(false)
-    //         // return alert("error")
-    //     }
-    //     return mail
-    // }
-    // const validatePass = (pass) => {
-    //     if ((pass == "")&(pass === undefined)){
-    //         setValid(false)
-    //         // return alert("error")
-    //     }
-    //     return pass
-    // }
     const mailChange = (e) => {
         console.log(e.target.name)
         setValid(true)
@@ -41,14 +25,13 @@ const AuthForm = ({setIsData}) => {
             [e.target.name]: val
           });
     }
+
     const handleSubmit = async(event)=>{
         event.preventDefault();
-        // data.email = validateMail(data.email)
-        // data.pass = validatePass(data.pass)
         console.log("finally: ", data.email, data.pass)
-        // console.log(valid)
-        if ((data.email != ("")||(undefined))&((data.pass != ("")||(undefined))&(data.email.includes("@")))) {
-            // setIsData(true)
+        if ((data.email != ("")||(undefined))&
+        ((data.pass != ("")||(undefined))&
+        (data.email.includes("@")))) {
             localStorage.setItem('isData', "true");
             window.location.reload()
         try{
@@ -62,14 +45,11 @@ const AuthForm = ({setIsData}) => {
 
     } else {
         setValid(false)
-        // setIsData(false)
         localStorage.setItem('isData', "false");
     }
 }
-    //   console.log(data)
-// console.log(isData)
-    //   var validColor = (valid===true?"#319795":"red")
-    var validColor = (valid===true?"":"red")
+    // var validColor = (valid===true?"":"red")
+    var validBorder = (valid===true?"3px solid #38B2AC":"3px solid red")
       
     return (
         <React.Fragment>
@@ -98,11 +78,11 @@ const AuthForm = ({setIsData}) => {
          value={data.pass} onChange={(event) => passChange(event)}/> */}
 
 
-        <Input style={{borderColor: validColor}}  type="text" placeholder="Тут почта..."
+        <Input style={{border: validBorder}}  type="text" placeholder="Тут почта..."
         name="email" value={data.email} focusBorderColor='teal.400' mt="10px"
          onChange={(event) => mailChange(event)}/>
 
-        <Input style={{borderColor: validColor}}  type="password" placeholder="А вот тут пароль..."
+        <Input style={{border: validBorder}}  type="password" placeholder="А вот тут пароль..."
         name="pass" value={data.pass} focusBorderColor='teal.400' mt="10px"
          onChange={(event) => passChange(event)}/>
 
@@ -111,16 +91,9 @@ const AuthForm = ({setIsData}) => {
           type="submit">Войти</Button>
       </form>
 
-
             </Flex>
             </Flex>
 
-            {/* <style jsx="true">{`
-        input{
-
-        }
-      `}
-      </style> */}
         </React.Fragment>
     )
 }

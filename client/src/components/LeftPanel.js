@@ -1,7 +1,6 @@
 import React from 'react'
 import { Flex, Button, Text } from '@chakra-ui/react'
 import { EmailIcon } from '@chakra-ui/icons'
-import { Link } from 'react-router-dom'
 const LeftPanel = () => {
     const logOut = () => {
         localStorage.setItem('isData', "false");
