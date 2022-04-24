@@ -25,6 +25,7 @@ const AuthForm = ({setIsData}) => {
     //     return pass
     // }
     const mailChange = (e) => {
+        console.log(e.target.name)
         setValid(true)
         var val = e.target.value;
         setData({
