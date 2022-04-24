@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import { Button, Flex, Input, Textarea, Text} from '@chakra-ui/react'
-import LeftPanel from './LeftPanel'
+import LeftPanel from '../components/LeftPanel'
 
 const MainPage = () => {
     var [text, setText] = useState("")
