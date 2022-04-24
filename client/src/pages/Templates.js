@@ -4,6 +4,7 @@ import { ChevronDownIcon } from '@chakra-ui/icons'
 import LeftPanel from '../components/LeftPanel'
 import TemplateItems from '../components/TemplateItems'
 
+
 const Templates = () => {
     return (
         <React.Fragment>
@@ -32,7 +33,7 @@ const Templates = () => {
   </MenuList>
 </Menu>
         </Flex>
-        <Flex w="60%" minH="150px" minW="360px" direction="column" border='1px' borderColor='gray.200'
+        <Flex w="60%" minH="200px" minW="360px" direction="column" border='1px' borderColor='gray.200'
           boxShadow='sm' borderBottomRightRadius="7px" borderBottomLeftRadius="7px">
         <Textarea value={template.firstContact} minW="325px" maxH="100%" minH="100%" focusBorderColor='teal.400' borderTopRightRadius="none" borderTopLeftRadius="none"
         borderBottomRightRadius="7px" borderBottomLeftRadius="7px" spellCheck="false" />
@@ -42,9 +43,13 @@ const Templates = () => {
     )
 }
 
+var a = <p>Wassup, <br></br>homie!
+</p>
+String(a)
+console.log(a.props.children)
+
 var template = {
-    firstContact:
-     ""
+    firstContact: "Здравствуйте, [ИМЯ]!\r\n Я нашел ваш профиль на [ГДЕ / КАК ВЫ ЕГО НАШЛИ] и хотел поговорить об отличной возможности.\r\n Я работаю в [НАЗВАНИЕ КОМПАНИИ], и мы ищем сотрудника [НАЗВАНИЕ ВАКАНСИИ]. Я думаю, что ваш опыт работы отлично подходит для этой позиции.\r\n Если вам интересно узнать больше, я буду рад пообщаться. Когда мы с Вами можем созвониться и обговорить детали?\r\n С нетерпением жду ответа от Вас в ближайшее время.\r\n С уважением,\r\n [ВАШЕ ИМЯ],\r\n [ВАША ПОДПИСЬ]"
 }
 
 export default Templates
