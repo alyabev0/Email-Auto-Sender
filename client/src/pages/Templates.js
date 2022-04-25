@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
 import { Select, Flex, Text, Button, Textarea, Input, InputGroup, InputLeftAddon, Center, BreadcrumbLink} from '@chakra-ui/react'
-import { ChevronDownIcon } from '@chakra-ui/icons'
 import LeftPanel from '../components/LeftPanel'
 import TemplateItems from '../components/TemplateItems'
 

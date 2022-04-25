@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import { useDisclosure, Button, Flex, Input, Textarea, Text, Badge} from '@chakra-ui/react'
+import { useDisclosure, Button, Flex, Input, Textarea, Text } from '@chakra-ui/react'
 import LeftPanel from '../components/LeftPanel'
 import ModalWindow from '../components/ModalWindow'
 
@@ -32,17 +32,17 @@ console.log(text)
 
         <Flex direction="column" justifyContent="center" alignItems="center" mt="4%">
           <Text fontWeight='300' textAlign="center"
-          fontSize="50px">Массовая рассылка</Text>
+          fontSize="50px">Рассылка</Text>
         </Flex>
-        <Flex w="60%" boxShadow="md" mt="15px" p="5px" borderRadius="7px">
+        <Flex minW="350px" w="60%" boxShadow="md" mt="15px" p="5px" borderRadius="7px">
             <Flex w="100%" bgColor="gray.100" borderRadius="7px" direction="column">
               <Text fontWeight="300">На данной странице доступны 2 опции:</Text>
-              <Text fontWeight="300">1.Массовая рассылка. Просто впишите нужное количество email-ов в графу "Получатель"</Text>
+              <Text fontWeight="300">1.Массовая рассылка. Просто впишите нужное количество email-ов в графу "Получатель".</Text>
               <Text fontWeight="300">2.Шаблонное сообщение. Зайдите на страницу "Шаблоны", выберите нужный и вставьте сюда.</Text>
             </Flex>
           </Flex>
 
-          <Flex w="60%" direction="column" mt="3%">
+          <Flex w="60%" direction="column" mt="3%" minW="350px">
       <form onSubmit={handleSend}>
 
         <Input focusBorderColor='teal.400' type="text" placeholder="Получатель (если несколько, то через запятую)"
