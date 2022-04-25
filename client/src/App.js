@@ -3,7 +3,7 @@ import React, {useState} from "react";
 import MainPage from "./pages/MainPage"
 import { Button, ButtonGroup, Input, Flex, Box, Center, Spacer } from '@chakra-ui/react'
 import LeftPanel from "./components/LeftPanel";
-import AuthForm from "./components/AuthForm";
+import AuthForm from "./pages/AuthForm";
 import Templates from "./pages/Templates";
 import { Routes, Route, Link, Navigate } from "react-router-dom";
 

@@ -45,18 +45,15 @@ const Templates = () => {
 //   useEffect(() => {
 //     setMainTemplate(template.jobReject)
 //     }, [template.jobReject]);
+
 function templateChoice (event) {
 console.log(event.target.id)
 setActiveOption(event.target.id)
 }
 function reload (event) {
   console.log(activeOption)
-  // if (activeOption == 1){
-  //   setMainTemplate(template.firstContact)
-  // }
 switch(activeOption){
   case "1":
-    console.log("yes")
     setMainTemplate(template.firstContact)
     break;
     case "2":
@@ -88,18 +85,7 @@ switch(activeOption){
         <Flex w="60%" minH="170px" h="20%"  minW="360px" direction="row" mt="5%"
          flexWrap="wrap" justifyContent="space-around">
             <TemplateItems data={data} onChange={dataChange}/>
-      {/* <Menu>
-  <MenuButton minW="220px" w="30%" as={Button} rightIcon={<ChevronDownIcon />}>
-    Выбрать шаблон
-  </MenuButton>
-  <MenuList>
-    <MenuItem onClick={() => setMainTemplate(template.firstContact)}>Первый контакт</MenuItem>
-    <MenuItem onClick={() => setMainTemplate(template.interviewInvite)}>Приглашение на собеседование</MenuItem>
-    <MenuItem onClick={() => setMainTemplate(template.jobOffer)}>Предложение о работе</MenuItem>
-    <MenuItem onClick={() => setMainTemplate(template.jobReject)}>Письмо с отказом</MenuItem>
-    <MenuItem onClick={() => setMainTemplate(template.requestTA)}>Письмо с ТЗ</MenuItem> 
-  </MenuList>
-</Menu> */}
+      
 <Select placeholder='Выбрать шаблон' maxW="40%">
   <option onClick={(event) => templateChoice(event)} id="1" value={template.firstContact}>Первый контакт</option>
   <option onClick={(event) => templateChoice(event)} id="2" value={template.interviewInvite}>Приглашение на собеседование</option>
