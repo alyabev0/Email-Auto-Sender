@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react'
-import { Select, Flex, Text, Menu, MenuButton, MenuList, MenuItem, Button, Textarea, Input, InputGroup, InputLeftAddon, Center, BreadcrumbLink} from '@chakra-ui/react'
+import React, {useState} from 'react'
+import { Select, Flex, Text, Button, Textarea, Input, InputGroup, InputLeftAddon, Center, BreadcrumbLink} from '@chakra-ui/react'
 import { ChevronDownIcon } from '@chakra-ui/icons'
 import LeftPanel from '../components/LeftPanel'
 import TemplateItems from '../components/TemplateItems'
@@ -7,6 +7,7 @@ import TemplateItems from '../components/TemplateItems'
 const Templates = () => {
   var [mainTemplate, setMainTemplate] = useState("")
   var [activeOption, setActiveOption] = useState("")
+
   var [data, setData] = useState({
     myName: "*Ваше имя*",
     receiverName: "*Имя получателя*",
@@ -28,24 +29,6 @@ const Templates = () => {
     jobReject: `Здравствуйте, ${data.receiverName}!\r\nСпасибо, что подали заявку на нашу вакансию ${data.rPosition} и рассказали нашей команде о своем опыте. C сожалением сообщаем, что мы решили выбрать более опытного кандидата на эту роль.\r\nМы сохраним Ваше резюме в базе и свяжемся с Вами, если поймем, что Вы подходите для других вакансий, которые будут открыты в дальнейшем.\r\nМы искренне ценим Ваше время и внимание к ${data.myCompany}.\r\nВсего наилучшего,\r\nКоманда ${data.myCompany}`,
     requestTA: `Здравствуйте, ${data.receiverName}!\r\nЕще раз благодарим Вас за заявку на вакансию ${data.link}. Мы рассматриваем Ваше резюме и хотели бы увидеть примеры работ, чтобы лучше оценить ваши способности. Пожалуйста, ответьте на это письмо, приложив примеры Ваших работ.\r\nВсе файлы должны быть представлены в определённом формате. Если у Вас есть какие-либо вопросы, пожалуйста, дайте мне знать.\r\nС уважением,\r\n${data.myName},\r\n${data.myPosition}`
 }
-// useEffect(() => {
-//   // console.log(template.firstContact)
-//   setMainTemplate(template.firstContact)
-//   }, [template.firstContact]);
-// useEffect(() => {
-//   setMainTemplate(template.interviewInvite)
-//   }, [template.interviewInvite]);
-// useEffect(() => {
-//   setMainTemplate(template.jobOffer)
-//   }, [template.jobOffer]);
-
-// useEffect(() => {
-//   setMainTemplate(template.requestTA)
-//   }, [template.requestTA]);
-//   useEffect(() => {
-//     setMainTemplate(template.jobReject)
-//     }, [template.jobReject]);
-
 function templateChoice (event) {
 console.log(event.target.id)
 setActiveOption(event.target.id)
@@ -72,8 +55,6 @@ switch(activeOption){
     break;
 }
 }
-// console.log(template.firstContact)
-// console.log(mainTemplate)
     return (
         <React.Fragment>
             <LeftPanel />
@@ -95,16 +76,16 @@ switch(activeOption){
 </Select>
 
 <Button w="40%" onClick={() => reload()}>Reload</Button>
-
         </Flex>
         <Flex w="60%" minH="200px" minW="360px" direction="column" 
           boxShadow='sm' borderBottomRightRadius="7px" borderBottomLeftRadius="7px">
         <Textarea value={mainTemplate} minW="325px" maxH="100%" minH="100%" border='2px' focusBorderColor='teal.400' borderTopRightRadius="7px" borderTopLeftRadius="7px"
         borderBottomRightRadius="7px" borderBottomLeftRadius="7px" spellCheck="false" />
+        
+        
         </Flex>
             </Flex>
         </React.Fragment>
     )
 }
-
 export default Templates

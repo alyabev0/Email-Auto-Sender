@@ -50,23 +50,6 @@ return (
         <Route path="templates" element={(localStorage.getItem('isData') == "true" ) ? <Templates /> : <AuthForm/> } />
       </Routes>
       </Flex>
-
-    
-    
-    
-    
-    
-    
-    
-    {/* {!sent ? (
-      <form onSubmit={handleSend}>
-        <Input focusBorderColor='purple.900' type="text" placeholder="subject" value={subject} onChange={(event) => setSubject(event.target.value)} />
-        <Input focusBorderColor='purple.900' type="text" placeholder="text" value={text} onChange={(event) => setText(event.target.value)} />
-        <Button colorScheme='purple' type="submit">Send Email</Button>
-      </form>
-    ) : (
-      <h1>Email Sent</h1>
-    )} */}
   </div>
 )
 }
