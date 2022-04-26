@@ -29,11 +29,10 @@ const AuthForm = ({setIsData}) => {
     const handleSubmit = async(event)=>{
         event.preventDefault();
         console.log("finally: ", data.email, data.pass)
-        if ((data.email != ("")||(undefined))&
+        if (((data.email != ("")||(undefined))&
         ((data.pass != ("")||(undefined))&
-        (data.email.includes("@")))) {
-            localStorage.setItem('isData', "true");
-            window.location.reload()
+        (data.email.includes("@"))))) {
+            
         try{
             await axios.post('http://localhost:3001/auth', {
               email: data.email,
@@ -43,6 +42,8 @@ const AuthForm = ({setIsData}) => {
           } catch (error) {
             console.log(error)
           }
+          localStorage.setItem('isData', "true");
+            window.location.reload()
 
     } else {
         setValid(false)
