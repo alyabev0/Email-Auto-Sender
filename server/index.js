@@ -37,8 +37,7 @@ app.post("/send_mail", cors(), async (req, res) => {
     let service = fs.readFileSync("./DATA/service.js", "utf-8")
     service = (service.replace(/^"(.*)"$/, '$1'))
 
-    emitter.emit('newMessage', email)
-    res.status(200)
+    
 
     console.log(email, pass)
     console.log(text, subject)
@@ -59,6 +58,9 @@ app.post("/send_mail", cors(), async (req, res) => {
     }
     
     await transporter.sendMail(mailOptions)
+
+    emitter.emit('newMessage', email)
+    res.status(200)
 })
 
 

@@ -10,6 +10,7 @@ const MainPage = () => {
     var [text, setText] = useState("")
     var [subject, setSubject] = useState("")
     const [receiver, setReceiver] = useState("")
+    const [isSent, setIsSent] = useState(false)
     const { isOpen, onOpen, onClose } = useDisclosure()
     const handleSend = async(event) => {
         event.preventDefault();
@@ -36,6 +37,7 @@ const MainPage = () => {
             const eventSource = new EventSource('http://localhost:3001/connect')
             eventSource.onmessage = function(event){
                 console.log(event)
+                setIsSent(true)
             }
         }
 
@@ -80,7 +82,7 @@ const MainPage = () => {
 
       </form>
 
-      <ModalWindow isOpen={isOpen} onClose={onClose}/>
+      <ModalWindow isOpen={isOpen} isSent={isSent} onClose={onClose}/>
 
       </Flex>
 
