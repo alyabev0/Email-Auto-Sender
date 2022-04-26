@@ -29,7 +29,7 @@ const AuthForm = ({setIsData}) => {
 
     const handleSubmit = async(event)=>{
         event.preventDefault();
-        
+        navigate("/", { replace: true });
         console.log("finally: ", data.email, data.pass)
         
         if (((data.email != ("")||(undefined))&
@@ -46,13 +46,14 @@ const AuthForm = ({setIsData}) => {
             console.log(error)
           }
           localStorage.setItem('isData', "true");
+          window.location.reload()
         //   navigate("/", { replace: true });
 
     } else {
         setValid(false)
         localStorage.setItem('isData', "false");
     }
-    window.location.reload()
+    
 }
     var validBorder = (valid===true?"3px solid #38B2AC":"3px solid red")
       
