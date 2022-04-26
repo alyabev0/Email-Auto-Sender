@@ -32,7 +32,7 @@ app.post("/send_mail", cors(), async (req, res) => {
     console.log(text, subject)
     console.log(email, pass)
     const transporter = nodemailer.createTransport({
-        service: "gmail",
+        service: "yahoo",
         auth: {
             user: email,
             pass: pass

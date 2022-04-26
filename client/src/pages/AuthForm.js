@@ -63,12 +63,12 @@ const AuthForm = ({setIsData}) => {
                          </Text>
                          {valid
                             ? <Text fontSize="xs" mt="10px" color="gray">
-                            Пожалуйста, введите данные от Вашей почты.<br/>
-                            Тестовая почта: tester.of.eas@gmail.com : WassUpDearTester
+                            Пожалуйста, введите данные от почты для рассылки.<br/>
+                            Тестовая почта: Ben152@yahoo.com : mzzoffhstihaokpc
                             </Text>
                             : <Text fontSize="xs" mt="10px" color="red.500">
                             Вы ввели некорректные данные.<br/>
-                            Тестовая почта: tester.of.eas@gmail.com : WassUpDearTester
+                            Тестовая почта: Ben152@yahoo.com : mzzoffhstihaokpc
                             </Text>}
                          {/* <Text fontSize="xs" mt="10px" color="gray">
                          Пожалуйста, введите данные от Вашей почты.<br/>

@@ -37,7 +37,7 @@ console.log(text)
         <Flex minW="350px" w="60%" boxShadow="md" mt="15px" p="5px" borderRadius="7px">
             <Flex w="100%" bgColor="gray.100" borderRadius="7px" direction="column">
               <Text fontWeight="300">На данной странице доступны 2 опции:</Text>
-              <Text fontWeight="300">1.Массовая рассылка. Просто впишите нужное количество email-ов в графу "Получатель".</Text>
+              <Text fontWeight="300">1.Массовая рассылка. Просто впишите нужное количество email-ов в графу "Получатель". Иногда письма попадают в "Спам".</Text>
               <Text fontWeight="300">2.Шаблонное сообщение. Зайдите на страницу "Шаблоны", выберите нужный и вставьте сюда.</Text>
             </Flex>
           </Flex>
