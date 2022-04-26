@@ -16,8 +16,10 @@ app.post("/auth", cors(), async (req, res) => {
     var data = req.body
     email = JSON.stringify(data.email)
     pass = JSON.stringify(data.pass)
+    service = JSON.stringify(data.service)
     fs.writeFileSync("./DATA/email.js", email)
     fs.writeFileSync("./DATA/pass.js", pass)
+    fs.writeFileSync("./DATA/service.js", service)
     console.log(data, typeof(data))
 })
 
@@ -28,11 +30,13 @@ app.post("/send_mail", cors(), async (req, res) => {
     email = (email.replace(/^"(.*)"$/, '$1'))
     let pass = fs.readFileSync("./DATA/pass.js", "utf-8")
     pass = (pass.replace(/^"(.*)"$/, '$1'))
+    let service = fs.readFileSync("./DATA/service.js", "utf-8")
+    service = (service.replace(/^"(.*)"$/, '$1'))
     console.log(email, pass)
     console.log(text, subject)
     console.log(email, pass)
     const transporter = nodemailer.createTransport({
-        service: "yahoo",
+        service: service,
         auth: {
             user: email,
             pass: pass

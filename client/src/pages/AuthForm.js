@@ -7,6 +7,8 @@ import { Flex, Button, Input, Text, Center, FormHelperText } from '@chakra-ui/re
 const AuthForm = ({setIsData}) => {
     const [data, setData] = useState({email: "", pass: ""})
     const [valid, setValid] = useState(true)
+    var service=data.email.substring(data.email.lastIndexOf("@")+1,data.email.lastIndexOf("."));
+        console.log(service)
     const mailChange = (e) => {
         console.log(e.target.name)
         setValid(true)
@@ -28,7 +30,6 @@ const AuthForm = ({setIsData}) => {
     const handleSubmit = async(event)=>{
         event.preventDefault();
         console.log("finally: ", data.email, data.pass)
-        
         if (((data.email != ("")||(undefined))&
         ((data.pass != ("")||(undefined))&
         (data.email.includes("@"))))) {
@@ -36,7 +37,8 @@ const AuthForm = ({setIsData}) => {
         try{
             await axios.post('http://localhost:3001/auth', {
               email: data.email,
-              pass: data.pass
+              pass: data.pass,
+              service: service
             })
             console.log("hui")
           } catch (error) {
