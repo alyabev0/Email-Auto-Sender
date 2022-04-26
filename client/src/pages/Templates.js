@@ -128,7 +128,7 @@ const Templates = () => {
           borderBottomLeftRadius="7px"
         >
           <Textarea
-            defaultValue={mainTemplate}
+            value={mainTemplate}
             minW="325px"
             maxH="100%"
             minH="100%"
