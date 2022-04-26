@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import { useDisclosure, Button, Flex, Input, Textarea, Text } from '@chakra-ui/react'
+import { useDisclosure, Button, Flex, Input, Textarea, Text, Spinner } from '@chakra-ui/react'
 import LeftPanel from '../components/LeftPanel'
 import ModalWindow from '../components/ModalWindow'
 
@@ -10,20 +10,27 @@ const MainPage = () => {
     const [subject, setSubject] = useState("")
     const [receiver, setReceiver] = useState("")
     const [isSent, setIsSent] = useState(false)
+    const [isSuccess, setIsSuccess] = useState(false)
     const { isOpen, onOpen, onClose } = useDisclosure()
-    const handleSend = async(event) => {
+    const handleSend = async(event, delay) => {
         event.preventDefault();
+        // delay()
         try{
+          console.log("wassup")
+          setTimeout(() => setIsSent(null), 5000);
           await axios.post('http://localhost:3001/send_mail', {
             receiver,
             subject,
             text
           })
+           //console.log(isSuccess)
         } catch (error) {
-          console.log(error)
+          
         }
+        //console.log(isSuccess)
+         console.log("wassup")
       }
-
+       
 
 
       useEffect(()=>{
@@ -38,7 +45,13 @@ const MainPage = () => {
         }
         window.addEventListener("click", ()=>{setIsSent(false)})
 
+function CustomSpinner(){
+  console.log(isSent)
+  if (isSent === null) return "Ошибка"
+  else if (isSent ===false) return <Spinner />
+}
 
+const button = <Button colorScheme='teal' onClick={onOpen} type="submit">Отправить</Button>
 
 
     return (
@@ -69,7 +82,8 @@ const MainPage = () => {
          
          <Textarea minH="200px" focusBorderColor='teal.400' placeholder="Напишите адресатам всё, что Вы о них думаете!"
          value={text} onChange={(event) => setText(event.target.value)} spellCheck="false"/>
-        <Button colorScheme='teal' onClick={onOpen} type="submit">Отправить</Button>
+        {/* <Button colorScheme='teal' onClick={onOpen} type="submit">Отправить</Button> */}
+        {button}
 
       </form>
 

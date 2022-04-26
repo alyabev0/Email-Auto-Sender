@@ -8,6 +8,7 @@ const AuthForm = () => {
     const [data, setData] = useState({email: "", pass: ""})
     const [valid, setValid] = useState(true)
     const [isLoading, setIsLoading] = useState(false)
+    
     var service=data.email.substring(data.email.lastIndexOf("@")+1,data.email.lastIndexOf("."));
         // console.log(service)
     const mailChange = (e) => {

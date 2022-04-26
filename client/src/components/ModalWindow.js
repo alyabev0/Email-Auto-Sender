@@ -1,12 +1,19 @@
 import React from 'react'
 import { Button, Text, Modal, ModalOverlay, ModalFooter, ModalContent, ModalHeader, ModalCloseButton, ModalBody, Spinner} from '@chakra-ui/react'
-const ModalWindow = ({isOpen, onClose, isSent, setIsSent}) => {
-// console.log(onClose)
+const ModalWindow = ({isOpen, onClose, isSent}) => {
+ //console.log(isSent)
 // setIsSent(true)
 //   console.log(isSent)
 // const onCloseFunc = () =>{
 //   onClose()
 // }
+if (isSent == null){
+  var text1 = <p>Неудача:(</p>
+} else if (isSent === false){
+  var text1 = <Spinner />
+}
+// const text = <p>Успешно!</p>
+// const spinner = {isSent} ? <text/> : <Spinner />
 
     return (
         <React.Fragment>
@@ -14,13 +21,14 @@ const ModalWindow = ({isOpen, onClose, isSent, setIsSent}) => {
         <ModalOverlay />
         <ModalContent>
           <ModalHeader minH="50px"></ModalHeader>
-          <ModalCloseButton />
+          <ModalCloseButton onClick={()=>{console.log("hi")}}/>
           <ModalBody>
             <Text fontSize="3xl" textAlign="center">
               {isSent
               ? "Успешно!"
               : <Spinner />
               }
+
               </Text>
           </ModalBody>
           <ModalFooter alignItems="center" justifyContent="flex-end">
