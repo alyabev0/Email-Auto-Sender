@@ -25,9 +25,7 @@ const MenuButton = ({text, Click}) => {
     transform: 'scale(0.98)',
     borderColor: 'gray.200',
     color: "white"
-  }}
-
->
+  }}>
   {text}
 </Box>
         </React.Fragment>
