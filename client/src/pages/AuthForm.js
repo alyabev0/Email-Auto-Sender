@@ -11,7 +11,7 @@ const AuthForm = () => {
     var service=data.email.substring(data.email.lastIndexOf("@")+1,data.email.lastIndexOf("."));
         console.log(service)
     const mailChange = (e) => {
-        console.log(e.target.name)
+        // console.log(e.target.name)
         setValid(true)
         let val = e.target.value;
         setData({
@@ -22,6 +22,7 @@ const AuthForm = () => {
     const passChange = (e) => {
         setValid(true)
         let val = e.target.value;
+        val = val.replace(/\s/g, '');
         setData({
             ...data,
             [e.target.name]: val
@@ -74,10 +75,6 @@ const AuthForm = () => {
                             Вы ввели некорректные данные.<br/>
                             Проверьте список доступных сервисов.
                             </Text>}
-                         {/* <Text fontSize="xs" mt="10px" color="gray">
-                         Пожалуйста, введите данные от Вашей почты.<br/>
-                         Тестовая почта: user@example.com : pass
-                         </Text> */}
                 </Flex>
                 <Flex w="25%" h="150px" mt="10px" minW="360px">
                     <form onSubmit={handleSubmit}>
@@ -93,7 +90,6 @@ const AuthForm = () => {
         <Button m="auto" mt="20px" w="100%"
          colorScheme='teal' bgGradient='linear(to-r, teal.300, teal.600)'
           type="submit">
-              {/* Войти */}
               {isLoading
               ? <Spinner></Spinner>
               : "Войти"}
