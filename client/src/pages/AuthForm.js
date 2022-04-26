@@ -68,7 +68,7 @@ const AuthForm = ({setIsData}) => {
                             </Text>
                             : <Text fontSize="xs" mt="10px" color="red.500">
                             Вы ввели некорректные данные.<br/>
-                            Тестовая почта: Ben152@yahoo.com : mzzoffhstihaokpc
+                            Проверьте список доступных сервисов.
                             </Text>}
                          {/* <Text fontSize="xs" mt="10px" color="gray">
                          Пожалуйста, введите данные от Вашей почты.<br/>
