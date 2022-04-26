@@ -1,16 +1,16 @@
 import React from "react";
-import {Helmet} from "react-helmet";
+import { Helmet } from "react-helmet";
 
 class Title extends React.Component {
-  render () {
+  render() {
     return (
-        <div>
-            <Helmet>
-                <meta charSet="utf-8" />
-                <title>Email Auto Sender</title>
-            </Helmet>
-        </div>
+      <div>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>Email Auto Sender</title>
+        </Helmet>
+      </div>
     );
   }
-};
-export default Title
+}
+export default Title;
