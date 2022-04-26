@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import { useDisclosure, Button, Flex, Input, Textarea, Text, Spinner } from '@chakra-ui/react'
+import { useDisclosure, Button, Flex, Input, Textarea, Text} from '@chakra-ui/react'
 import LeftPanel from '../components/LeftPanel'
 import ModalWindow from '../components/ModalWindow'
 
@@ -17,22 +17,16 @@ const MainPage = () => {
         // delay()
         try{
           console.log("wassup")
-          setTimeout(() => setIsSuccess(false), 5000);
+          setTimeout(() => setIsSuccess(false), 8000);
           await axios.post('http://localhost:3001/send_mail', {
             receiver,
             subject,
             text
           })
-           //console.log(isSuccess)
         } catch (error) {
-          
         }
-        //console.log(isSuccess)
          console.log("wassup")
       }
-       
-
-
       useEffect(()=>{
         subscribe()
     }, [])
@@ -47,15 +41,6 @@ const MainPage = () => {
           setIsSent(false)
           setIsSuccess(true)
         })
-
-// function CustomSpinner(){
-//   console.log(isSent)
-//   if (isSent === null) return "Ошибка"
-//   else if (isSent ===false) return <Spinner />
-// }
-
-const button = <Button colorScheme='teal' onClick={onOpen} type="submit">Отправить</Button>
-
 
     return (
         
@@ -85,8 +70,7 @@ const button = <Button colorScheme='teal' onClick={onOpen} type="submit">Отп�
          
          <Textarea minH="200px" focusBorderColor='teal.400' placeholder="Напишите адресатам всё, что Вы о них думаете!"
          value={text} onChange={(event) => setText(event.target.value)} spellCheck="false"/>
-        {/* <Button colorScheme='teal' onClick={onOpen} type="submit">Отправить</Button> */}
-        {button}
+        <Button colorScheme='teal' onClick={onOpen} type="submit">Отправить</Button>
 
       </form>
 
