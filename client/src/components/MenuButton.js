@@ -2,7 +2,6 @@ import React from 'react'
 import { Box } from '@chakra-ui/react'
 
 const MenuButton = ({text, Click}) => {
-    console.log(Click)
     return (
         <React.Fragment>
 <Box

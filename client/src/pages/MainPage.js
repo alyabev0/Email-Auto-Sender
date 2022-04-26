@@ -1,10 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { useDisclosure, Button, Flex, Input, Textarea, Text } from '@chakra-ui/react'
 import LeftPanel from '../components/LeftPanel'
 import ModalWindow from '../components/ModalWindow'
 
 const MainPage = () => {
+  // let eventSource = new EventSource("http://localhost:3001/send_mail");
+  
     var [text, setText] = useState("")
     var [subject, setSubject] = useState("")
     const [receiver, setReceiver] = useState("")
@@ -18,10 +20,32 @@ const MainPage = () => {
             text
           })
         } catch (error) {
+          // eventSource.onerror = function(event) {
+          //   alert(event)
+          //   console.log("Новое сообщение", event);
+          //   // этот код выведет в консоль 3 сообщения, из потока данных выше
+          // };
           console.log(error)
         }
       }
-console.log(text)
+
+      useEffect(()=>{
+        subscribe()
+    }, [])
+        const subscribe = async() => {
+            const eventSource = new EventSource('http://localhost:3001/connect')
+            eventSource.onmessage = function(event){
+                console.log(event)
+            }
+        }
+
+
+
+
+
+
+
+
     return (
         
         <React.Fragment>

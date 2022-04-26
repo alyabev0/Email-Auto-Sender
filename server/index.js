@@ -4,7 +4,11 @@ const bodyParser = require("body-parser")
 const cors = require("cors")
 const nodemailer = require("nodemailer") 
 const app = express()
+const events = require('events')
 require('dotenv').config()
+
+const emitter = new events.EventEmitter();
+
 
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
@@ -32,6 +36,10 @@ app.post("/send_mail", cors(), async (req, res) => {
     pass = (pass.replace(/^"(.*)"$/, '$1'))
     let service = fs.readFileSync("./DATA/service.js", "utf-8")
     service = (service.replace(/^"(.*)"$/, '$1'))
+
+    emitter.emit('newMessage', email)
+    res.status(200)
+
     console.log(email, pass)
     console.log(text, subject)
     console.log(email, pass)
@@ -52,6 +60,21 @@ app.post("/send_mail", cors(), async (req, res) => {
     
     await transporter.sendMail(mailOptions)
 })
+
+
+
+app.get("/connect", (req, res) => {
+    res.writeHead(200, {
+        "Connection": "keep-alive",
+        "Content-type": "text/event-stream",
+        "Cache-control": "no-cache"
+    })
+    emitter.on("newMessage", (email) => {
+        res.write(`data: ${JSON.stringify(email)} \n\n`)
+    })
+})
+
+
 
 const PORT = process.env.PORT
 

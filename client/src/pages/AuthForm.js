@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import axios from "axios"
 import { Flex, Button, Input, Text, Spinner } from '@chakra-ui/react'
 
@@ -57,6 +57,7 @@ const AuthForm = () => {
     setIsLoading(false)
 }
     var validBorder = (valid===true?"3px solid #38B2AC":"3px solid red")
+
       
     return (
         <React.Fragment>
