@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import axios from "axios"
-import { Flex, Button, Input, Text, Center} from '@chakra-ui/react'
+import { Flex, Button, Input, Text, Center, FormHelperText} from '@chakra-ui/react'
 
 
 
@@ -39,6 +39,7 @@ const AuthForm = ({setIsData}) => {
               email: data.email,
               pass: data.pass
             })
+            console.log("hui")
           } catch (error) {
             console.log(error)
           }
@@ -53,14 +54,28 @@ const AuthForm = ({setIsData}) => {
     return (
         <React.Fragment>
             <Flex w="100%" minH="100%" direction="column" alignItems="center"  bg="white">
-                <Center w="30%" mt="10%" fontSize="5xl">
+                <Flex w="30%" mt="10%" fontSize="5xl" direction="column" alignItems="center" justifyContent="center">
                     <Text fontSize="6xl" bgGradient='linear(to-t, teal.300, teal.600)' lineHeight="66px"
                      bgClip='text'  fontWeight='semibold'>
                          Авторизация
                          </Text>
-                </Center>
-                <Flex w="25%" h="150px" mt="20px" minW="360px">
+                         {valid
+                            ? <Text fontSize="xs" mt="10px" color="gray">
+                            Пожалуйста, введите данные от Вашей почты.<br/>
+                            Тестовая почта: tester.of.eas@gmail.com : testerOFeas
+                            </Text>
+                            : <Text fontSize="xs" mt="10px" color="red.500">
+                            Вы ввели некорректные данные.<br/>
+                            Тестовая почта: tester.of.eas@gmail.com : testerOFeas
+                            </Text>}
+                         {/* <Text fontSize="xs" mt="10px" color="gray">
+                         Пожалуйста, введите данные от Вашей почты.<br/>
+                         Тестовая почта: user@example.com : pass
+                         </Text> */}
+                </Flex>
+                <Flex w="25%" h="150px" mt="10px" minW="360px">
                     <form onSubmit={handleSubmit}>
+                        
         <Input style={{border: validBorder}}  type="text" placeholder="Тут почта..."
         name="email" value={data.email} focusBorderColor='teal.400' mt="10px"
          onChange={(event) => mailChange(event)}/>

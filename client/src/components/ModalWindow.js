@@ -10,9 +10,7 @@ const ModalWindow = ({isOpen, onClose}) => {
           <ModalCloseButton />
           <ModalBody>
             <Text fontSize="3xl" textAlign="center">Успешно!</Text>
-            
           </ModalBody>
-
           <ModalFooter alignItems="center" justifyContent="flex-end">
           <Button colorScheme='teal' onClick={onClose}>
               Close

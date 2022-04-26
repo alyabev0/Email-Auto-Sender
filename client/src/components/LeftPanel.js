@@ -7,7 +7,6 @@ const LeftPanel = () => {
     const logOut = () => {
         localStorage.setItem('isData', "false");
         document.location='/'
-        // window.location.reload()
     }
     return (
         <React.Fragment>
@@ -18,7 +17,6 @@ const LeftPanel = () => {
            ? <Text color="black" fontSize='3xl' textAlign="center">Email Auto Sender</Text>
            : <Text color="black" fontSize='xl' textAlign="center">Email Auto Sender</Text>
            }
-          {/* <Text color="black" fontSize='3xl' textAlign="center">Email Auto Sender</Text> */}
           <Flex direction="column" w="100%" alignItems="center" mt="10%">
 <MenuButton text={"Главная"} Click={()=>{document.location='/'}}/>
 <MenuButton text={"Шаблоны"} Click={()=>{document.location='templates'}}/>
