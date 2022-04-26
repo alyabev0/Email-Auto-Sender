@@ -1,8 +1,7 @@
-import React, {useEffect, useState} from 'react'
+/* eslint-disable eqeqeq */
+import React, { useState } from 'react'
 import axios from "axios"
 import { Flex, Button, Input, Text, Spinner } from '@chakra-ui/react'
-
-
 
 const AuthForm = () => {
     const [data, setData] = useState({email: "", pass: ""})

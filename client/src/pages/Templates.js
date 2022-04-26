@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { Select, Flex, Text, Button, Textarea, Input, InputGroup, InputLeftAddon, Center, BreadcrumbLink} from '@chakra-ui/react'
+import { Select, Flex, Text, Button, Textarea} from '@chakra-ui/react'
 import LeftPanel from '../components/LeftPanel'
 import TemplateItems from '../components/TemplateItems'
 
@@ -78,10 +78,8 @@ switch(activeOption){
         </Flex>
         <Flex w="60%" minH="200px" minW="360px" direction="column" 
           boxShadow='sm' borderBottomRightRadius="7px" borderBottomLeftRadius="7px">
-        <Textarea value={mainTemplate} minW="325px" maxH="100%" minH="100%" border='2px' focusBorderColor='teal.400' borderTopRightRadius="7px" borderTopLeftRadius="7px"
+        <Textarea defaultValue={mainTemplate} minW="325px" maxH="100%" minH="100%" border='2px' focusBorderColor='teal.400' borderTopRightRadius="7px" borderTopLeftRadius="7px"
         borderBottomRightRadius="7px" borderBottomLeftRadius="7px" spellCheck="false" />
-        
-        
         </Flex>
             </Flex>
         </React.Fragment>
