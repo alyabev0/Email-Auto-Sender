@@ -1,11 +1,19 @@
 {
   "name": "mailsender",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "https://github.com/alyabev0",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alyabev0/Email-Auto-Sender.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alyabev0/Email-Auto-Sender/issues"
+  },
+  "homepage": "https://github.com/alyabev0/Email-Auto-Sender#readme",
+  "description": ""
 }
