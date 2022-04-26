@@ -15,7 +15,6 @@ const MainPage = () => {
     const handleSend = async(event) => {
         event.preventDefault();
         try{
-          console.log("wassup")
           setTimeout(() => setIsSuccess(false), 8000);
           await axios.post('http://localhost:3001/send_mail', {
             receiver,
@@ -24,7 +23,6 @@ const MainPage = () => {
           })
         } catch (error) {
         }
-         console.log("wassup")
       }
       useEffect(()=>{
         subscribe()
@@ -32,7 +30,6 @@ const MainPage = () => {
         const subscribe = async() => {
             const eventSource = new EventSource('http://localhost:3001/connect')
             eventSource.onmessage = function(event){
-              console.log(event.data)
               setIsSent(true)
           }
         }
@@ -56,7 +53,7 @@ const MainPage = () => {
               <Text fontWeight="300">На данной странице доступны 2 опции:</Text>
               <Text fontWeight="300">1.Массовая рассылка. Просто впишите нужное количество email-ов в графу "Получатель". Иногда письма попадают в "Спам".</Text>
               <Text fontWeight="300">2.Шаблонное сообщение. Зайдите на страницу "Шаблоны", выберите нужный и вставьте сюда.</Text>
-              
+
             </Flex>
           </Flex>
           <Flex w="60%" direction="column" mt="3%" minW="350px">

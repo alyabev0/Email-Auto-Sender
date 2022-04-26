@@ -28,7 +28,6 @@ const AuthForm = () => {
     const handleSubmit = async(event)=>{
         event.preventDefault();
         setIsLoading(true)
-        console.log("finally: ", data.email, data.pass)
         if (((data.email != ("")||(undefined))&
         ((data.pass != ("")||(undefined))&
         (data.email.includes("@"))))) {
@@ -38,9 +37,8 @@ const AuthForm = () => {
               pass: data.pass,
               service: service
             })
-            console.log("hui")
           } catch (error) {
-            console.log(error)
+              console.log(error)
           }
           localStorage.setItem('isData', "true");
           window.location.reload()

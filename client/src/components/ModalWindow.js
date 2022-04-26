@@ -9,7 +9,7 @@ const ModalWindow = ({isOpen, onClose, isSent, isSuccess}) => {
         <ModalOverlay />
         <ModalContent>
           <ModalHeader minH="50px"></ModalHeader>
-          <ModalCloseButton onClick={()=>{console.log("hi")}}/>
+          <ModalCloseButton/>
           <ModalBody>
             <Text fontSize="3xl" textAlign="center">
               {isSent
