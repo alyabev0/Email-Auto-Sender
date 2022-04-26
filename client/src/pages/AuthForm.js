@@ -1,13 +1,14 @@
 import React, {useState} from 'react'
 import axios from "axios"
-import { Flex, Button, Input, Text, Center, FormHelperText} from '@chakra-ui/react'
+import { Flex, Button, Input, Text, Center, FormHelperText } from '@chakra-ui/react'
+import { useNavigate } from "react-router-dom";
 
 
 
 const AuthForm = ({setIsData}) => {
     const [data, setData] = useState({email: "", pass: ""})
     const [valid, setValid] = useState(true)
-
+    let navigate = useNavigate();
     const mailChange = (e) => {
         console.log(e.target.name)
         setValid(true)
@@ -28,7 +29,9 @@ const AuthForm = ({setIsData}) => {
 
     const handleSubmit = async(event)=>{
         event.preventDefault();
+        
         console.log("finally: ", data.email, data.pass)
+        
         if (((data.email != ("")||(undefined))&
         ((data.pass != ("")||(undefined))&
         (data.email.includes("@"))))) {
@@ -43,12 +46,13 @@ const AuthForm = ({setIsData}) => {
             console.log(error)
           }
           localStorage.setItem('isData', "true");
-            window.location.reload()
+        //   navigate("/", { replace: true });
 
     } else {
         setValid(false)
         localStorage.setItem('isData', "false");
     }
+    window.location.reload()
 }
     var validBorder = (valid===true?"3px solid #38B2AC":"3px solid red")
       
