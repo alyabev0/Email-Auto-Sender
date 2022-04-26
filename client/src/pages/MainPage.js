@@ -10,14 +10,14 @@ const MainPage = () => {
     const [subject, setSubject] = useState("")
     const [receiver, setReceiver] = useState("")
     const [isSent, setIsSent] = useState(false)
-    const [isSuccess, setIsSuccess] = useState(false)
+    const [isSuccess, setIsSuccess] = useState(true)
     const { isOpen, onOpen, onClose } = useDisclosure()
     const handleSend = async(event, delay) => {
         event.preventDefault();
         // delay()
         try{
           console.log("wassup")
-          setTimeout(() => setIsSent(null), 5000);
+          setTimeout(() => setIsSuccess(false), 5000);
           await axios.post('http://localhost:3001/send_mail', {
             receiver,
             subject,
@@ -43,13 +43,16 @@ const MainPage = () => {
               setIsSent(true)
           }
         }
-        window.addEventListener("click", ()=>{setIsSent(false)})
+        window.addEventListener("click", ()=>{
+          setIsSent(false)
+          setIsSuccess(true)
+        })
 
-function CustomSpinner(){
-  console.log(isSent)
-  if (isSent === null) return "Ошибка"
-  else if (isSent ===false) return <Spinner />
-}
+// function CustomSpinner(){
+//   console.log(isSent)
+//   if (isSent === null) return "Ошибка"
+//   else if (isSent ===false) return <Spinner />
+// }
 
 const button = <Button colorScheme='teal' onClick={onOpen} type="submit">Отправить</Button>
 
@@ -87,7 +90,7 @@ const button = <Button colorScheme='teal' onClick={onOpen} type="submit">Отп�
 
       </form>
 
-      <ModalWindow isOpen={isOpen} setIsSent={setIsSent} isSent={isSent} onClose={onClose}/>
+      <ModalWindow isOpen={isOpen} setIsSent={setIsSent} isSent={isSent} onClose={onClose} isSuccess={isSuccess}/>
 
       </Flex>
 

@@ -1,6 +1,7 @@
 import React from 'react'
+import CustomSpinner from './CustomSpinner'
 import { Button, Text, Modal, ModalOverlay, ModalFooter, ModalContent, ModalHeader, ModalCloseButton, ModalBody, Spinner} from '@chakra-ui/react'
-const ModalWindow = ({isOpen, onClose, isSent}) => {
+const ModalWindow = ({isOpen, onClose, isSent, isSuccess}) => {
  //console.log(isSent)
 // setIsSent(true)
 //   console.log(isSent)
@@ -26,7 +27,7 @@ if (isSent == null){
             <Text fontSize="3xl" textAlign="center">
               {isSent
               ? "Успешно!"
-              : <Spinner />
+              : <CustomSpinner isSuccess={isSuccess}/>
               }
 
               </Text>
