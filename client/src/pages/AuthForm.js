@@ -1,18 +1,19 @@
 import React, {useState} from 'react'
 import axios from "axios"
-import { Flex, Button, Input, Text, Center, FormHelperText } from '@chakra-ui/react'
+import { Flex, Button, Input, Text, Spinner } from '@chakra-ui/react'
 
 
 
-const AuthForm = ({setIsData}) => {
+const AuthForm = () => {
     const [data, setData] = useState({email: "", pass: ""})
     const [valid, setValid] = useState(true)
+    const [isLoading, setIsLoading] = useState(false)
     var service=data.email.substring(data.email.lastIndexOf("@")+1,data.email.lastIndexOf("."));
         console.log(service)
     const mailChange = (e) => {
         console.log(e.target.name)
         setValid(true)
-        var val = e.target.value;
+        let val = e.target.value;
         setData({
             ...data,
             [e.target.name]: val
@@ -20,7 +21,7 @@ const AuthForm = ({setIsData}) => {
     }
     const passChange = (e) => {
         setValid(true)
-        var val = e.target.value;
+        let val = e.target.value;
         setData({
             ...data,
             [e.target.name]: val
@@ -29,6 +30,7 @@ const AuthForm = ({setIsData}) => {
 
     const handleSubmit = async(event)=>{
         event.preventDefault();
+        setIsLoading(true)
         console.log("finally: ", data.email, data.pass)
         if (((data.email != ("")||(undefined))&
         ((data.pass != ("")||(undefined))&
@@ -51,7 +53,7 @@ const AuthForm = ({setIsData}) => {
         setValid(false)
         localStorage.setItem('isData', "false");
     }
-    
+    setIsLoading(false)
 }
     var validBorder = (valid===true?"3px solid #38B2AC":"3px solid red")
       
@@ -90,7 +92,13 @@ const AuthForm = ({setIsData}) => {
 
         <Button m="auto" mt="20px" w="100%"
          colorScheme='teal' bgGradient='linear(to-r, teal.300, teal.600)'
-          type="submit">Войти</Button>
+          type="submit">
+              {/* Войти */}
+              {isLoading
+              ? <Spinner></Spinner>
+              : "Войти"}
+              
+              </Button>
       </form>
 
             </Flex>
