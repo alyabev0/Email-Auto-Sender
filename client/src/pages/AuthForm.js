@@ -9,7 +9,7 @@ const AuthForm = () => {
     const [valid, setValid] = useState(true)
     const [isLoading, setIsLoading] = useState(false)
     var service=data.email.substring(data.email.lastIndexOf("@")+1,data.email.lastIndexOf("."));
-        console.log(service)
+        // console.log(service)
     const mailChange = (e) => {
         // console.log(e.target.name)
         setValid(true)

@@ -37,8 +37,6 @@ app.post("/send_mail", cors(), async (req, res) => {
     let service = fs.readFileSync("./DATA/service.js", "utf-8")
     service = (service.replace(/^"(.*)"$/, '$1'))
 
-    
-
     console.log(email, pass)
     console.log(text, subject)
     console.log(email, pass)
@@ -56,14 +54,11 @@ app.post("/send_mail", cors(), async (req, res) => {
         subject: subject,
         text: text 
     }
-    
     await transporter.sendMail(mailOptions)
 
-    emitter.emit('newMessage', email)
+    emitter.emit('newMessage', text)
     res.status(200)
 })
-
-
 
 app.get("/connect", (req, res) => {
     res.writeHead(200, {
@@ -71,15 +66,15 @@ app.get("/connect", (req, res) => {
         "Content-type": "text/event-stream",
         "Cache-control": "no-cache"
     })
-    emitter.on("newMessage", (email) => {
-        res.write(`data: ${JSON.stringify(email)} \n\n`)
+    emitter.on("newMessage", (error) => {
+        res.write(`data: ${JSON.stringify(error)} \n\n`)
     })
 })
-
 
 
 const PORT = process.env.PORT
 
 app.listen(PORT, () => {
     console.log(`nodemailerProject is listening at http://localhost:${PORT}`)
+    
   })

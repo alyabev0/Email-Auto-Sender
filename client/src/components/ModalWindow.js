@@ -1,8 +1,13 @@
 import React from 'react'
 import { Button, Text, Modal, ModalOverlay, ModalFooter, ModalContent, ModalHeader, ModalCloseButton, ModalBody, Spinner} from '@chakra-ui/react'
-const ModalWindow = ({isOpen, onClose, isSent}) => {
+const ModalWindow = ({isOpen, onClose, isSent, setIsSent}) => {
+// console.log(onClose)
+// setIsSent(true)
+//   console.log(isSent)
+// const onCloseFunc = () =>{
+//   onClose()
+// }
 
-  
     return (
         <React.Fragment>
             <Modal size={"xs"} isOpen={isOpen} onClose={onClose} isCentered>
@@ -20,7 +25,7 @@ const ModalWindow = ({isOpen, onClose, isSent}) => {
           </ModalBody>
           <ModalFooter alignItems="center" justifyContent="flex-end">
           <Button colorScheme='teal' onClick={onClose}>
-              Close
+              Закрыть
             </Button>
           </ModalFooter>
         </ModalContent>

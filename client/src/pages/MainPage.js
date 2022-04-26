@@ -5,10 +5,9 @@ import LeftPanel from '../components/LeftPanel'
 import ModalWindow from '../components/ModalWindow'
 
 const MainPage = () => {
-  // let eventSource = new EventSource("http://localhost:3001/send_mail");
-  
-    var [text, setText] = useState("")
-    var [subject, setSubject] = useState("")
+
+    const [text, setText] = useState("")
+    const [subject, setSubject] = useState("")
     const [receiver, setReceiver] = useState("")
     const [isSent, setIsSent] = useState(false)
     const { isOpen, onOpen, onClose } = useDisclosure()
@@ -21,14 +20,11 @@ const MainPage = () => {
             text
           })
         } catch (error) {
-          // eventSource.onerror = function(event) {
-          //   alert(event)
-          //   console.log("Новое сообщение", event);
-          //   // этот код выведет в консоль 3 сообщения, из потока данных выше
-          // };
           console.log(error)
         }
       }
+
+
 
       useEffect(()=>{
         subscribe()
@@ -36,14 +32,11 @@ const MainPage = () => {
         const subscribe = async() => {
             const eventSource = new EventSource('http://localhost:3001/connect')
             eventSource.onmessage = function(event){
-                console.log(event)
-                setIsSent(true)
-            }
+              console.log(event.data)
+              setIsSent(true)
+          }
         }
-
-
-
-
+        window.addEventListener("click", ()=>{setIsSent(false)})
 
 
 
@@ -52,8 +45,6 @@ const MainPage = () => {
         
         <React.Fragment>
             <LeftPanel/>
-             
-    {/* поменять h на 100%  */}
       <Flex w="80%" minH="100%" direction="column" alignItems="center">
 
         <Flex direction="column" justifyContent="center" alignItems="center" mt="4%">
@@ -82,7 +73,7 @@ const MainPage = () => {
 
       </form>
 
-      <ModalWindow isOpen={isOpen} isSent={isSent} onClose={onClose}/>
+      <ModalWindow isOpen={isOpen} setIsSent={setIsSent} isSent={isSent} onClose={onClose}/>
 
       </Flex>
 
