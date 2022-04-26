@@ -2,7 +2,6 @@ import React from 'react'
 import { Flex, Text, Input} from '@chakra-ui/react'
 
 const TemplateItems = ({onChange, data}) => {
-    // console.log(onChange, data)
     var first = {
         dataValue: data.receiverName,
         name: "receiverName",
@@ -34,7 +33,6 @@ const TemplateItems = ({onChange, data}) => {
         description: "Ссылка:"
     }
     const items = [first, second, third, fourth, fifth, sixth]
-
     const listItems = items.map((item) => 
     <React.Fragment>
 <Flex alignItems="center" justifyContent="center" maxH="40px" minW="171px" w="30%" >
