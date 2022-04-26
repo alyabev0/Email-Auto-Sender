@@ -16,18 +16,18 @@ app.post("/auth", cors(), async (req, res) => {
     var data = req.body
     email = JSON.stringify(data.email)
     pass = JSON.stringify(data.pass)
-    fs.writeFileSync("email.js", email)
-    fs.writeFileSync("./DATA/pass.txt", pass)
+    fs.writeFileSync("./DATA/email.js", email)
+    fs.writeFileSync("./DATA/pass.js", pass)
     console.log(data, typeof(data))
 })
 
 app.post("/send_mail", cors(), async (req, res) => {
     let {receiver, subject, text} = req.body
     console.log(req.body)
-    let email = fs.readFileSync("./DATA/email.txt", "utf-8")
-    // email = (email.replace(/^"(.*)"$/, '$1'))
-    let pass = fs.readFileSync("./DATA/pass.txt", "utf-8")
-    // pass = (pass.replace(/^"(.*)"$/, '$1'))
+    let email = fs.readFileSync("./DATA/email.js", "utf-8")
+    email = (email.replace(/^"(.*)"$/, '$1'))
+    let pass = fs.readFileSync("./DATA/pass.js", "utf-8")
+    pass = (pass.replace(/^"(.*)"$/, '$1'))
     console.log(email, pass)
     console.log(text, subject)
     console.log(email, pass)

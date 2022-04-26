@@ -1,14 +1,12 @@
 import React, {useState} from 'react'
 import axios from "axios"
 import { Flex, Button, Input, Text, Center, FormHelperText } from '@chakra-ui/react'
-import { useNavigate } from "react-router-dom";
 
 
 
 const AuthForm = ({setIsData}) => {
     const [data, setData] = useState({email: "", pass: ""})
     const [valid, setValid] = useState(true)
-    let navigate = useNavigate();
     const mailChange = (e) => {
         console.log(e.target.name)
         setValid(true)
@@ -29,7 +27,6 @@ const AuthForm = ({setIsData}) => {
 
     const handleSubmit = async(event)=>{
         event.preventDefault();
-        navigate("/", { replace: true });
         console.log("finally: ", data.email, data.pass)
         
         if (((data.email != ("")||(undefined))&
@@ -47,7 +44,6 @@ const AuthForm = ({setIsData}) => {
           }
           localStorage.setItem('isData', "true");
           window.location.reload()
-        //   navigate("/", { replace: true });
 
     } else {
         setValid(false)
@@ -68,11 +64,11 @@ const AuthForm = ({setIsData}) => {
                          {valid
                             ? <Text fontSize="xs" mt="10px" color="gray">
                             Пожалуйста, введите данные от Вашей почты.<br/>
-                            Тестовая почта: tester.of.eas@gmail.com : testerOFeas
+                            Тестовая почта: tester.of.eas@gmail.com : WassUpDearTester
                             </Text>
                             : <Text fontSize="xs" mt="10px" color="red.500">
                             Вы ввели некорректные данные.<br/>
-                            Тестовая почта: tester.of.eas@gmail.com : testerOFeas
+                            Тестовая почта: tester.of.eas@gmail.com : WassUpDearTester
                             </Text>}
                          {/* <Text fontSize="xs" mt="10px" color="gray">
                          Пожалуйста, введите данные от Вашей почты.<br/>
