@@ -1,73 +1,57 @@
 /* eslint-disable eqeqeq */
-import React, { useState } from "react";
-import axios from "axios";
-import { Flex, Button, Input, Text, Spinner } from "@chakra-ui/react";
-
+import React, { useState } from 'react'
+import axios from "axios"
+import { Flex, Button, Input, Text, Spinner } from '@chakra-ui/react'
 const AuthForm = () => {
-  const [data, setData] = useState({ email: "", pass: "" });
-  const [valid, setValid] = useState(true);
-  const [isLoading, setIsLoading] = useState(false);
-  // var service = data.email.substring(
-  //   data.email.lastIndexOf("@") + 1,
-  //   data.email.lastIndexOf(".")
-  // );
-  const mailChange = (e) => {
-    setValid(true);
-    let val = e.target.value;
-    setData({
-      ...data,
-      [e.target.name]: val,
-    });
-  };
-  const passChange = (e) => {
-    setValid(true);
-    let val = e.target.value;
-    val = val.replace(/\s/g, "");
-    setData({
-      ...data,
-      [e.target.name]: val,
-    });
-  };
-  const validateMail = (email) => {
-    if ((email != "" || undefined) & (email.includes("@"))) return email
-  }
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    setIsLoading(true);
-    data.email = validateMail(data.email)
-    console.log(data.email)
-    // if (
-    //   (data.email != "" || undefined) &
-    //   ((data.pass != "" || undefined) & data.email.includes("@"))
-    // ) {
-      if (data.email == ("" || undefined)) {
-               setValid(false);
-    localStorage.setItem("isData", "false");
-    setIsLoading(false);
-      } 
-      if (data.email == false) return false
-      let service = data.email.substring(
-        data.email.lastIndexOf("@") + 1,
-        data.email.lastIndexOf(".")
-      );
-      try {
-        await axios.post("http://localhost:3001/auth", {
-          email: data.email,
-          pass: data.pass,
-          service: service,
-        });
-      } catch (error) {
-        console.log(error);
-      }
-      localStorage.setItem("isData", "true");
-      window.location.reload();
-    // } else {
-    //   setValid(false);
-    //   localStorage.setItem("isData", "false");
-    // }
-    setIsLoading(false);
-  };
-  var validBorder = valid === true ? "3px solid #38B2AC" : "3px solid red";
+    const [data, setData] = useState({email: "", pass: ""})
+    const [valid, setValid] = useState(true)
+    const [isLoading, setIsLoading] = useState(false)
+    var service=data.email.substring(data.email.lastIndexOf("@")+1,data.email.lastIndexOf("."));
+    const mailChange = (e) => {
+        setValid(true)
+        let val = e.target.value;
+        setData({
+            ...data,
+            [e.target.name]: val
+          });
+    }
+    const passChange = (e) => {
+        setValid(true)
+        let val = e.target.value;
+        val = val.replace(/\s/g, '');
+        setData({
+            ...data,
+            [e.target.name]: val
+          });
+    }
+    const handleSubmit = async(event)=>{
+        event.preventDefault();
+        setIsLoading(true)
+        console.log("finally: ", data.email, data.pass)
+        if (((data.email != ("")||(undefined))&
+        ((data.pass != ("")||(undefined))&
+        (data.email.includes("@"))))) {
+        try{
+            await axios.post('http://localhost:3001/auth', {
+              email: data.email,
+              pass: data.pass,
+              service: service
+            }).then(localStorage.setItem('isData', "true")).then(setTimeout(() => {
+              window.location.reload();
+            }, "3000")
+            )
+          } catch (error) {
+            console.log(error)
+          }
+          // localStorage.setItem('isData', "true");
+          // window.location.reload()
+    } else {
+        setValid(false)
+        localStorage.setItem('isData', "false");
+    }
+    setIsLoading(false)
+}
+    var validBorder = (valid===true?"3px solid #38B2AC":"3px solid red")
   return (
     <React.Fragment>
       <Flex
