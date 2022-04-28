@@ -7,10 +7,10 @@ const AuthForm = () => {
   const [data, setData] = useState({ email: "", pass: "" });
   const [valid, setValid] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
-  var service = data.email.substring(
-    data.email.lastIndexOf("@") + 1,
-    data.email.lastIndexOf(".")
-  );
+  // var service = data.email.substring(
+  //   data.email.lastIndexOf("@") + 1,
+  //   data.email.lastIndexOf(".")
+  // );
   const mailChange = (e) => {
     setValid(true);
     let val = e.target.value;
@@ -28,13 +28,28 @@ const AuthForm = () => {
       [e.target.name]: val,
     });
   };
+  const validateMail = (email) => {
+    if ((email != "" || undefined) & (email.includes("@"))) return email
+  }
   const handleSubmit = async (event) => {
     event.preventDefault();
     setIsLoading(true);
-    if (
-      (data.email != "" || undefined) &
-      ((data.pass != "" || undefined) & data.email.includes("@"))
-    ) {
+    data.email = validateMail(data.email)
+    console.log(data.email)
+    // if (
+    //   (data.email != "" || undefined) &
+    //   ((data.pass != "" || undefined) & data.email.includes("@"))
+    // ) {
+      if (data.email == ("" || undefined)) {
+               setValid(false);
+    localStorage.setItem("isData", "false");
+    setIsLoading(false);
+      } 
+      if (data.email == false) return false
+      let service = data.email.substring(
+        data.email.lastIndexOf("@") + 1,
+        data.email.lastIndexOf(".")
+      );
       try {
         await axios.post("http://localhost:3001/auth", {
           email: data.email,
@@ -46,10 +61,10 @@ const AuthForm = () => {
       }
       localStorage.setItem("isData", "true");
       window.location.reload();
-    } else {
-      setValid(false);
-      localStorage.setItem("isData", "false");
-    }
+    // } else {
+    //   setValid(false);
+    //   localStorage.setItem("isData", "false");
+    // }
     setIsLoading(false);
   };
   var validBorder = valid === true ? "3px solid #38B2AC" : "3px solid red";
