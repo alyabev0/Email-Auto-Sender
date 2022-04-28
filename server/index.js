@@ -16,7 +16,14 @@ app.use(cors());
 
 app.post("/auth", cors(), async (req, res) => {
   console.log(req.body, typeof req.body);
-  var data = req.body;
+  fs.mkdirSync("./DATA", { recursive: true }, (error) => {
+    if (error) {
+      console.log("error occurred in creating DATA folder", error);
+    } else {
+      console.log("DATA folder was created successfully");
+    }
+  });
+  let data = req.body;
   email = JSON.stringify(data.email);
   pass = JSON.stringify(data.pass);
   service = JSON.stringify(data.service);
