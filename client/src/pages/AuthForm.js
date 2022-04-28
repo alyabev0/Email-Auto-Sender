@@ -6,10 +6,6 @@ const AuthForm = () => {
   const [data, setData] = useState({ email: "", pass: "" });
   const [valid, setValid] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
-  var service = data.email.substring(
-    data.email.lastIndexOf("@") + 1,
-    data.email.lastIndexOf(".")
-  );
   const mailChange = (e) => {
     setValid(true);
     let val = e.target.value;
@@ -35,6 +31,10 @@ const AuthForm = () => {
       (data.email != "" || undefined) &
       ((data.pass != "" || undefined) & data.email.includes("@"))
     ) {
+      let service = data.email.substring(
+        data.email.lastIndexOf("@") + 1,
+        data.email.lastIndexOf(".")
+      );
       try {
         await axios
           .post("http://localhost:3001/auth", {
