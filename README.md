@@ -16,19 +16,6 @@
 - [Особенности проекта](#особенности-проекта)
 - [Технологии](#технологии)
 - [Дополнительные технологии](#доптехнологии)
-- [Environment variables](#environment-variables)
-- [Bash Completion](#bash-completion)
-  - [Usage](#usage-1)
-- [Compatibility Issues](#compatibility-issues)
-- [Installing nvm on Alpine Linux](#installing-nvm-on-alpine-linux)
-- [Uninstalling / Removal](#uninstalling--removal)
-  - [Manual Uninstall](#manual-uninstall)
-- [Docker For Development Environment](#docker-for-development-environment)
-- [Problems](#problems)
-- [macOS Troubleshooting](#macos-troubleshooting)
-- [Maintainers](#maintainers)
-- [License](#license)
-- [Copyright notice](#copyright-notice)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
