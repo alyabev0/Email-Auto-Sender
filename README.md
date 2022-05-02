@@ -16,6 +16,7 @@
 - [Особенности проекта](#особенности-проекта)
 - [Технологии](#технологии)
 - [Дополнительные технологии](#доптехнологии)
+- [Деплой](#деплой)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -70,3 +71,4 @@ cd Email-Auto-Sender
 ```
 docker compose up
 ```
+<a id="деплой"></a>
