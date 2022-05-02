@@ -54,3 +54,19 @@ Full Stack SPA приложение на стеке ReactJS + NodeJS (ExpressJS)
 
 *[Prettier](https://prettier.io/)*
 <a id="доптехнологии"></a>
+
+## Деплой
+## 💿Установка
+
+Клонируем репозиторий
+```
+git clone https://github.com/alyabev0/Email-Auto-Sender
+```
+Открываем папку проекта
+```
+cd Email-Auto-Sender
+```
+Запускаем сборку Docker
+```
+docker compose up
+```
