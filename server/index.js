@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.post("/auth", cors(), async (req, res) => {
-  console.log(req.body, typeof req.body);
+  console.log(req.body);
   fs.mkdirSync("./DATA", { recursive: true }, (error) => {
     if (error) {
       console.log("error occurred in creating DATA folder", error);
@@ -30,7 +30,6 @@ app.post("/auth", cors(), async (req, res) => {
   fs.writeFileSync("./DATA/email.js", email);
   fs.writeFileSync("./DATA/pass.js", pass);
   fs.writeFileSync("./DATA/service.js", service);
-  console.log(data, typeof data);
 });
 
 app.post("/send_mail", cors(), async (req, res) => {
@@ -43,9 +42,6 @@ app.post("/send_mail", cors(), async (req, res) => {
   let service = fs.readFileSync("./DATA/service.js", "utf-8");
   service = service.replace(/^"(.*)"$/, "$1");
 
-  console.log(email, pass);
-  console.log(text, subject);
-  console.log(email, pass);
   const transporter = nodemailer.createTransport({
     service: service,
     auth: {
