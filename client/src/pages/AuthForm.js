@@ -88,7 +88,6 @@ const AuthForm = () => {
             <Text fontSize="xs" mt="10px" color="gray">
               Пожалуйста, введите данные от почты для рассылки.
               <br />
-              Тестовая почта: Ben152@yahoo.com : mzzoffhstihaokpc
             </Text>
           ) : (
             <Text fontSize="xs" mt="10px" color="red.500">
