@@ -8,7 +8,7 @@
 
 ❗Иногда письма могут попадать в "Спам"❗
 
-<img src="https://github.com/alyabev0/Email-Auto-Sender/blob/main/images/first.jpg" width="33%"></img><img src="https://github.com/alyabev0/Email-Auto-Sender/blob/main/images/second.jpg" width="33%%"></img><img src="https://github.com/alyabev0/Email-Auto-Sender/blob/main/images/third.jpg" width="33%%"></img>
+<img src="https://github.com/alyabev0/Email-Auto-Sender/blob/main/images/second.jpg"></img>
 
 <!-- To update this table of contents, ensure you have run `npm install` then `npm run doctoc` -->
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
