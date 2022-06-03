@@ -1,6 +1,7 @@
 # Email-Auto-Sender
 Небольшая утилита для упрощения переписки между рекрутером и кандидатом.
-❗Поддерживает почты: hotmail, mail.ru, outlook365, yahoo, yandex❗
+❗Поддерживает почты:
+hotmail, mail.ru, outlook365, yahoo, yandex❗
 
 Проект выполнен на ReactJS + NodeJS.
  
